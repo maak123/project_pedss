@@ -1,0 +1,85 @@
+
+<div style= "text-align: left; height: 100px;" class="container">
+  <h4 class="">Register Users As </h4>
+  <h5 class=" w3-light-green">Amalgameted Club Member </h5>
+  <h5 class=" w3-orange">Faculty Sport Captain </h5>
+</div>
+
+
+<div class="row" >
+  
+  
+  
+    <div class="col-md-7">
+     <!--  height: 520px; 
+overflow: scroll; -->
+    
+
+         
+          <div style="text-align: center;  margin-left: 20px;margin-right: 20px" >
+            
+              <form class="test" #form="ngForm" >
+              <div class="row">
+              <div class="form-control col s6">
+              <input type="text" class="form-control" placeholder="Search.." name="search">
+              </div>
+              <button type="submit" class="action-btn w3-blue w3-round" (click)="onSearch(form)">search</button>
+              </div>
+            </form>
+
+              <table class="responsive-table highlight">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Index No</th>
+                      <th>Faculty</th>
+                      <th></th>
+                     
+                    </tr>
+                  </thead>
+                  <tr *ngFor="let user of userService.users">
+                    <td>{{user.name}}</td>
+                    <td>{{user.indexNo}}</td>
+                    <td>{{user.faculty}}</td>
+                    <td>
+                        <a class="action-btn w3-red" (click)="onSelect(user)">
+                          Select
+                        </a>
+                    </td>
+                  </tr>
+                </table>
+          </div>
+          
+         
+      </div> 
+      <div class="col-md-5">
+            <div class="w3-card-2 w3-round w3-white" *ngIf = "userService.selectedUser != null">
+                  <div class="w3-container">
+                   <h4 class="w3-center">My Profile</h4>
+                   <p class="w3-center"><img src="assets/img/user.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
+                   <hr>
+                   <ul>
+                          <li>Name -{{userService.selectedUser.name}}</li>
+                          <li>indexNo -{{userService.selectedUser.indexNo}}</li>
+                          <li>regNo -{{userService.selectedUser.regNo}}</li>
+                      
+                    </ul>
+                  </div>
+                  <p style="text-align: center;" class="w3-red">Set as</p>
+                    <button class="w3-bar-item w3-button w3-blue" style="width:50%" (click)="showAmalClubMember=true;showFacSportCaptain=false;"> Amalgamated Club member</button>
+                    <button class="w3-bar-item w3-button w3-light-blue" style="width:50%;" (click)="showFacSportCaptain=true;showAmalClubMember=false;">Fac Sport Captain</button>
+
+                    <br>
+
+                     <div class="w3-container" style="border-top: 20px">
+                     <app-registeramalclubmember *ngIf="showAmalClubMember"></app-registeramalclubmember>
+                     <app-registerfacsportcaptain *ngIf="showFacSportCaptain"></app-registerfacsportcaptain>
+                   </div>
+            </div>
+                <br>
+                
+ 
+           
+      </div>
+
+</div>

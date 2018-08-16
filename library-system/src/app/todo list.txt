@@ -1,0 +1,9 @@
+* register members
+
+data goes to database but no user details
+
+*teamcard
+
+problem 
+view team
+-->  inside teancard controller call user controller retrive user list

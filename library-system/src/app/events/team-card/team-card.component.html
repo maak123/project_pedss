@@ -1,0 +1,235 @@
+
+<div class="row" style="padding-top: 25px">
+<div class="col-md-6">
+  
+
+		 <table class="w3-table">
+                  <thead>
+                    <tr class="w3-green">
+                      <th>Name</th>
+                      <th>Des</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tr *ngFor="let event of eventService.events" >
+                  	<ng-container *ngIf="event.status=='activated'">
+                    <td>{{event.eventName}}</td>
+                    <td>{{event.eventDesc}}</td>
+                    
+                        <td>
+                        	<button class=" action-btn w3-button w3-red" (click)="viewSubEvents(event)">View Sub Events</button>
+                        
+                       
+                      </td>
+                  </ng-container>
+                  </tr>
+          </table>
+          
+		
+	</div>
+	<div class="col-md-6" >
+		
+    <table class="w3-table" *ngIf="showSubEventList">
+                  <thead>
+                    <tr class="w3-blue">
+                      <th>Name</th>
+                      <th>Sport</th>
+                     
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tr *ngFor="let subEvent of subEventService.subEvents">
+                    <ng-container *ngIf="subEvent.eventId==selectedEventId">
+                    <td>{{subEvent.subEventName}}</td>
+                    <td>{{subEvent.sport}}</td>
+                    
+                        <td>
+                        <a class="action-btn" (click)="addTeamCard(subEvent)">
+                          add Team Card
+                        </a>
+                       
+                         
+                      </td>
+                    </ng-container>
+                  </tr>
+      </table>
+
+	</div>
+</div>
+
+
+<div class="container" *ngIf="userService.selectedUser != null && showUserFormAndList " >
+  
+  <div class="col s12">
+    <div class="row">
+         
+
+
+          <div style="text-align: center;  margin-left: 20px;margin-right: 20px" >
+            
+              <form class="test" #form="ngForm" >
+              <div class="row">
+              <div class="form-control col s6">
+              <input type="text" class="form-control" placeholder="Search.." name="search">
+              </div>
+              <button type="submit" class="action-btn w3-blue w3-round" (click)="onSearch(form)">search</button>
+              </div>
+            </form>
+
+              <table class="responsive-table highlight">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Index No</th>
+                      <th>Faculty</th>
+                      <th></th>
+                     
+                    </tr>
+                  </thead>
+                  <tr *ngFor="let user of userService.users">
+                    <td>{{user.name}}</td>
+                    <td>{{user.indexNo}}</td>
+                    <td>{{user.faculty}}</td>
+                    <td>
+                        <a class="action-btn w3-red" (click)="onSelect(user)">
+                          Select
+                        </a>
+                    </td>
+                  </tr>
+                </table>
+          </div>
+
+
+
+
+    
+          <div class="col s5" *ngIf="false">
+            <form class ="test" #form="ngForm" (ngSubmit)="onSubmit(form)">
+
+
+              <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userService.selectedUser._id">
+
+
+              <div class="row">
+                <div class="form-group col s6">
+                <label>Name :
+                    <label style="color:red">*</label>
+                  </label>
+                
+                <div class="input-field col s12">
+                  <input class = "form-control" type="text"name="name" #name="ngModel" [(ngModel)]="userService.selectedUser.name" placeholder="Full Name" >
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="form-group col s6">
+                <label>IndexNo :
+                    <label style="color:red">*</label>
+                  </label>
+                
+                <div class="input-field col s12">
+                  <input class = "form-control" type="text" name="indexNo" #name="ngModel" [(ngModel)]="userService.selectedUser.indexNo" placeholder="Index No" >
+                  </div>
+                </div>
+              </div>
+
+           
+
+              <div class="row">
+                <div class="form-group col s6">
+                <label>
+                  Telephone :
+                </label>
+                
+                <div class="input-field col s12">
+                  <input class = "form-control" type="text" name="telephone" #name="ngModel" [(ngModel)]="userService.selectedUser.telephone" placeholder="Telephone" >
+                  </div>
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="form-group col s6">
+                <label>
+                  Email :
+                </label>
+                
+                <div class="input-field col s12">
+                  <input class = "form-control" type="text" name="email" #name="ngModel" [(ngModel)]="userService.selectedUser.email" placeholder="Email" >
+                  </div>
+                </div>
+              </div>
+
+             
+              
+              <div class="row">
+                <div class="form-group col s6">
+                <div class="input-field col s12">
+                  <button class="w3-button w3-blue w3-round w3-right " type="button" (click)="resetForm(form)">Reset</button>
+                  <button class="w3-button w3-blue w3-round" type="submit" [disabled]="!form.valid">Submit</button>
+                </div>
+              </div>
+              </div>
+
+            </form>
+          </div>
+         
+          <div class="col s7" style=" height: 520px; 
+overflow: scroll;">
+              <table class="responsive-table highlight">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>RegNo</th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tr *ngFor="let user of userList">
+                    <td>{{user.name}}</td>
+                    <td>{{user.indexNo}}</td>
+                    <td>
+                        <a class="action-btn" (click)="onEdit(user)">
+                          edit
+                        </a>
+                    </td>
+                    <td>
+                        <a class="action-btn" (click)="onDelete(user._id,form)">
+                          delete
+                        </a>
+                    </td>
+                  </tr>
+                </table>
+
+                <form class ="test" #form="ngForm" (ngSubmit)="onSubmit(form)">
+
+
+                  <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userService.selectedUser._id">
+
+
+                  <div class="row">
+                    <div class="form-group col s6">
+                    <label>Name :
+                        <label style="color:red">*</label>
+                      </label>
+                    
+                    <div class="input-field col s12">
+                      <input class = "form-control" type="text"name="name" #name="ngModel" [(ngModel)]="userService.selectedUser.name" placeholder="Full Name" >
+                      </div>
+                    </div>
+                  </div> 
+                  
+                  <div class="row">
+                    <div class="form-group col s6">
+                    <div class="input-field col s12">
+                      <button class="w3-button w3-blue w3-round w3-right " type="button" (click)="resetForm(form)">Reset</button>
+                      <button class="w3-button w3-blue w3-round" type="submit" [disabled]="!form.valid">Submit</button>
+                    </div>
+                  </div>
+                  </div>
+
+            </form>
+          </div>
+      </div> 
+</div>
+</div>

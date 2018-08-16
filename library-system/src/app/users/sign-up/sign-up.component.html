@@ -1,0 +1,139 @@
+
+
+
+
+
+
+
+          <div class="container">
+            <form class ="test" #form="ngForm" (ngSubmit)="onSubmit(form)">
+
+
+              <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userService.selectedUser._id">
+
+
+              <div class="row">
+                <div class="form-group col s6">
+                <label>Name :
+                    <label style="color:red">*</label>
+                  </label>
+                
+                <div class="input-field col s12">
+                  <input class = "form-control" type="text"name="name" #name="ngModel" [(ngModel)]="userService.selectedUser.name" placeholder="Full Name" >
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="form-group col s6">
+                <label>IndexNo :
+                    <label style="color:red">*</label>
+                  </label>
+                
+                <div class="input-field col s12">
+                  <input class = "form-control" type="text" name="indexNo" #name="ngModel" [(ngModel)]="userService.selectedUser.indexNo" placeholder="Index No" >
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="form-group col s6">
+                <label>
+                  RegNo :
+                </label>
+                
+                <div class="input-field col s12">
+                  <input class = "form-control" type="text" name="regNo" #name="ngModel" [(ngModel)]="userService.selectedUser.regNo" placeholder="Registration No" >
+                  </div>
+                </div>
+              </div>
+
+               <div class="form-group row col s6">
+                  <label>
+                    Faculty
+                  </label>
+                   
+                  <div class="input-group">
+                    <select class = "form-control " name="faculty" #name="ngModel"[(ngModel)]="userService.selectedUser.faculty" required>
+                      <option *ngFor = " let faculty of faculties" value={{faculty}}>{{faculty}}</option>
+                    </select>
+                    </div>
+                </div>
+
+              <div class="row">
+                <div class="form-group col s6">
+                <label>
+                  Nic :
+                </label>
+                
+                <div class="input-field col s12">
+                  <input class = "form-control" type="text" name="nic" #name="ngModel" [(ngModel)]="userService.selectedUser.nic" placeholder="NIC" >
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="form-group col s6">
+                <label>
+                  Telephone :
+                </label>
+                
+                <div class="input-field col s12">
+                  <input class = "form-control" type="text" name="telephone" #name="ngModel" [(ngModel)]="userService.selectedUser.telephone" placeholder="Telephone" >
+                  </div>
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="form-group col s6">
+                <label>
+                  Email :
+                </label>
+                
+                <div class="input-field col s12">
+                  <input class = "form-control" type="text" name="email" #name="ngModel" [(ngModel)]="userService.selectedUser.email" placeholder="Email" >
+                  </div>
+                </div>
+              </div>
+<!--
+                <div class="row">
+                      <div class="form-group col s6" >
+                  <label>Position</label>
+                   <select class = "form-control " name="positions" #name= "ngModel" [(ngModel)]="userService.selectedUser.positions">
+                    <option value="Captain">Captain</option>
+                          <option value="Vice Captain">Vice Captain</option>
+                      </select> 
+                  </div>
+                   
+                <div class="form-group col s6">
+                  <label>Sport</label>
+                  <input class="form-control" name="sport" #name="ngModel" [(ngModel)]="userService.selectedUser.sport" placeholder="Sport" required>
+                </div>
+                  
+                </div>
+
+-->
+              
+
+              <div class="row">
+                <div class="form-group col s6">
+                <label>
+                  Password :
+                </label>
+                
+                <div class="input-field col s12">
+                  <input class = "form-control" type="password" name="password" #name="ngModel" [(ngModel)]="userService.selectedUser.password" >
+                  </div>
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="form-group col s6">
+                <div class="input-field col s12">
+                  <button class="w3-button w3-blue w3-round w3-right " type="button" (click)="resetForm(form)">Reset</button>
+                  <button class="w3-button w3-blue w3-round" type="submit" [disabled]="!form.valid">Submit</button>
+                </div>
+              </div>
+              </div>
+
+            </form>

@@ -1,0 +1,30 @@
+<div class="col-md-5">
+		 <table class="w3-table">
+                  <thead>
+                    <tr class="w3-blue">
+                      <th>Name</th>
+                      <th>Des</th>
+                     
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tr *ngFor="let subEvent of subEventList">
+                    <ng-container *ngIf="subEvent.eventId==selectedEventId">
+                    <td>{{subEvent.subEventName}}</td>
+                    <td>{{subEvent.subEventDesc}}</td>
+                    
+                        <td>
+                        <a class="action-btn" (click)="onEdit(subEvent)">
+                          edit
+                        </a>
+                        <a class="action-btn" (click)="onDelete(subEvent._id)">
+                          delete
+                        </a>
+                         
+                      </td>
+                    </ng-container>
+                  </tr>
+          </table>
+          
+		
+	</div>

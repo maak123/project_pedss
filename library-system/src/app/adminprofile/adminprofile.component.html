@@ -1,0 +1,124 @@
+
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
+</style>
+<body class="w3-theme-l5">
+
+<!-- Navbar -->
+ <div class="w3-bar w3-border w3-dark-grey w3-padding-large" >
+  <a  class="w3-bar-item w3-button">Home</a>
+  <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=true;showEvent=false;showRegisterMembers=false;showTeamCard=false;">Users</a>
+  <a  class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=false;showEvent=true;showRegisterMembers=false;showTeamCard=false;">Events</a>
+  <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=false;showEvent=false;showRegisterMembers=false;showTeamCard=true;">TeamCard</a>
+  <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=false;showEvent=false;showRegisterMembers=true;showTeamCard=false;">Register Members</a>
+  <a routerLink ="/" class="w3-bar-item w3-button w3-mobile w3-right" (click)="logOut()">log out</a>
+ 
+  
+</div> 
+
+<!-- Navbar on small screens -->
+<div id="navDemo" class="w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:51px">
+  <ul class="w3-navbar w3-left-align w3-large w3-theme">
+    <li><a class="w3-padding-large" href="tryit.asp-filename=tryw3css_templates_social&stacked=h.html#">Link 1</a></li>
+    <li><a class="w3-padding-large" href="tryit.asp-filename=tryw3css_templates_social&stacked=h.html#">Link 2</a></li>
+    <li><a class="w3-padding-large" href="tryit.asp-filename=tryw3css_templates_social&stacked=h.html#">Link 3</a></li>
+    <li><a class="w3-padding-large" href="tryit.asp-filename=tryw3css_templates_social&stacked=h.html#">My Profile</a></li>
+  </ul>
+</div>
+
+<!-- Page Container -->
+<div class="w3-container w3-content" style="max-width:1400px;margin-top:10px">    
+  <!-- The Grid -->
+  <div class="w3-row">
+  
+    
+    <!-- Middle Column -->
+    <div class="w3-col m10">
+
+      <div class="w3-container w3-card-2 w3-white w3-round w3-margin" ><br>
+        <app-registermembers *ngIf="showRegisterMembers"></app-registermembers>
+        <app-user *ngIf="showUsers"></app-user>
+        <app-event *ngIf="showEvent"></app-event>
+        <app-team-card *ngIf="showTeamCard"></app-team-card>
+
+      </div>
+      
+      
+      
+    <!-- End Middle Column -->
+    </div>
+    
+    <!-- Right Column -->
+    <div class="w3-col m2">
+      <div class="w3-card-2 w3-round w3-white">
+        <div class="w3-container">
+         <h4 class="w3-center">My Profile</h4>
+         <p class="w3-center"><img src="assets/img/user.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
+         <hr>
+         <ul>
+                <li>Administrator Profile</li>
+               
+            
+              </ul>
+        </div>
+      </div>
+      <div class="w3-card-2 w3-round w3-white w3-center">
+        <div class="w3-container">
+          <p>Upcoming Events:</p>
+          <img src="img_forest.jpg" alt="Forest" style="width:100%;">
+          <p><strong>Holiday</strong></p>
+          <p>Friday 15:00</p>
+          <p><button class="w3-btn w3-btn-block w3-theme-l4">Info</button></p>
+        </div>
+      </div>
+      <br>
+      
+      <div class="w3-card-2 w3-round w3-white w3-center">
+        <div class="w3-container">
+          <p>Friend Request</p>
+          <img src="img_avatar6.png" alt="Avatar" style="width:50%"><br>
+          <span>Jane Doe</span>
+          <div class="w3-row w3-opacity">
+            <div class="w3-half">
+              <button class="w3-btn w3-green w3-btn-block w3-section" title="Accept"><i class="fa fa-check"></i></button>
+            </div>
+            <div class="w3-half">
+              <button class="w3-btn w3-red w3-btn-block w3-section" title="Decline"><i class="fa fa-remove"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      
+      <div class="w3-card-2 w3-round w3-white w3-padding-hor-16 w3-center">
+        <p>ADS</p>
+      </div>
+      <br>
+      
+      <div class="w3-card-2 w3-round w3-white w3-padding-hor-32 w3-center">
+       
+      </div>
+      
+    <!-- End Right Column -->
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+<!-- End Page Container -->
+</div>
+<br>
+
+<!-- Footer -->
+<footer class="w3-container w3-theme-d3 w3-padding-hor-16">
+  <h5>Footer</h5>
+</footer>
+
+<footer class="w3-container w3-theme-d5">
+  <p>Powered by <a href="default.asp.html" target="_blank">w3.css</a></p>
+</footer>
+ 
+
+
+</body>
+

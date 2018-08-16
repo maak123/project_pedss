@@ -1,0 +1,107 @@
+
+	<div class="row" style="padding-top: 25px">
+	<div class=" col-md-7" >
+
+		<table class="w3-table" *ngIf="showMe">
+                  <thead>
+                    <tr class="w3-green">
+                      <th>Name</th>
+                      <th>Des</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tr *ngFor="let event of eventService.events" >
+                  	<ng-container *ngIf="event.status=='activated'">
+                    <td>{{event.eventName}}</td>
+                    <td>{{event.eventDesc}}</td>
+                    
+                        <td>
+                        	<button class=" action-btn w3-button w3-red" (click)="addSubEvent(event)">Add Sub Event</button>
+                        
+                       
+                        </td>
+                  </ng-container>
+                  </tr>
+          </table>
+		
+		<form #subEventForm="ngForm" (ngSubmit)="onSubmit(subEventForm)" *ngIf="showSubEventFormAndList">
+
+			<h5>Insert SubEvents to {{ selectedEventInSubEvent.eventName}} </h5>
+
+			<p>
+			{{selectedEventInSubEvent.eventDesc}}<br>
+			Due dates :
+			{{selectedEventInSubEvent.dateRange.formatted}}
+		    </p>
+
+			<input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="subEventService.selectedSubEvent._id">
+			<input type="hidden" name="eventId" #eventId="ngModel" [(ngModel)]="subEventService.selectedSubEvent.eventId">
+
+	        <div class="form-group">
+	        	<label>Sub Event Name</label>
+		        <input class="form-control" name="subEventName" #name="ngModel" [(ngModel)]="subEventService.selectedSubEvent.subEventName" placeholder="Name of the sub event" required>
+	        </div>
+
+	        <div class="form-group">
+	        	<label>Sport</label>
+	        	<div class="input-group">
+	        	<select class = "form-control " name="sport" #sport="ngModel"[(ngModel)]="subEventService.selectedSubEvent.sport" required>
+	        	  <option *ngFor = " let sport of sports" value={{sport}}>{{sport}}</option>
+	        	</select>
+	        	</div>
+	        </div>
+
+	        <div class="form-group">
+	        	<label>Date Range</label>
+		        <my-date-range-picker name="dateRange" [options]="myDateRangePickerOptions"
+                    [(ngModel)]="subEventService.selectedSubEvent.dateRange" required></my-date-range-picker>
+	        </div>
+          
+	
+	       <div class="form-group">
+	       	<button type="submit" class="w3-button w3-blue w3-round" [disabled]="!subEventForm">Submit</button>
+	       </div>
+	
+
+    </form>
+
+	</div>
+	<div  *ngIf="showSubEventFormAndList">
+
+		<!--<app-subeventlist *ngIf="showSubEventFormAndList" [selectedEventId]="selectedEventInSubEvent._id"></app-subeventlist>
+
+		-->
+
+		<div class="col-md-5">
+		 <table class="w3-table">
+                  <thead>
+                    <tr class="w3-blue">
+                      <th>Name</th>
+                      <th>Sport</th>
+                     
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tr *ngFor="let subEvent of subEventService.subEvents">
+                    <ng-container *ngIf="subEvent.eventId==selectedEventInSubEvent._id">
+                    <td>{{subEvent.subEventName}}</td>
+                    <td>{{subEvent.sport}}</td>
+                    
+                        <td>
+                        <a class="action-btn" (click)="onEdit(subEvent)">
+                          edit
+                        </a>
+                        <a class="action-btn" (click)="onDelete(subEvent._id)">
+                          delete
+                        </a>
+                         
+                      </td>
+                    </ng-container>
+                  </tr>
+          </table>
+          
+		
+	</div>
+	</div>
+</div>
+	
