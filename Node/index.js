@@ -10,6 +10,7 @@ var subEventController = require('./controllers/subEventController.js');
 var teamCardController = require('./controllers/teamCardController.js');
 var amalClubMemberController = require('./controllers/amalClubMemberController.js');
 var facSportCaptainController = require('./controllers/facSportCaptainController.js');
+var teamCaptainController = require('./controllers/teamCaptainController.js');
 
 
 var app = express();
@@ -26,3 +27,4 @@ app.use('/subEvent',subEventController);
 app.use('/teamCard',teamCardController);
 app.use('/amalClubMember',amalClubMemberController);
 app.use('/facSportCaptain',facSportCaptainController);
+app.use('/teamCaptain',teamCaptainController);

@@ -27,6 +27,8 @@ import { TeamCardComponent } from './events/team-card/team-card.component';
 import { RegistermembersComponent } from './users/registermembers/registermembers.component';
 import { RegisteramalclubmemberComponent } from './users/registermembers/registeramalclubmember/registeramalclubmember.component';
 import { RegisterfacsportcaptainComponent } from './users/registermembers/registerfacsportcaptain/registerfacsportcaptain.component';
+import { CreateteamcaptainComponent } from './events/createteamcaptain/createteamcaptain.component';
+import { TeamcaptainComponent } from './users/teamcaptain/teamcaptain.component';
 
 
 
@@ -48,7 +50,9 @@ import { RegisterfacsportcaptainComponent } from './users/registermembers/regist
      TeamCardComponent,
      RegistermembersComponent,
      RegisteramalclubmemberComponent,
-     RegisterfacsportcaptainComponent 
+     RegisterfacsportcaptainComponent,
+     CreateteamcaptainComponent,
+     TeamcaptainComponent 
 
 
 

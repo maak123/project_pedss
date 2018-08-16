@@ -11,6 +11,7 @@ export class AdminprofileComponent implements OnInit {
   private showEvents : boolean= false;
   private showRegisterMembers : boolean= false;
   private showTeamCard : boolean = false; 
+  private showCreateTeamCaptain : boolean =false;
 
   constructor() { }
 
