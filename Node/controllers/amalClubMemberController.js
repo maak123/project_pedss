@@ -17,7 +17,7 @@ router.get('/user/:userId', (req, res) => {
     if (!ObjectId.isValid(req.params.userId))
         return res.status(400).send(`No record with given id : ${req.params.userId}`);
 
-    AmalClubMember.find({userId : req.params.userId} , (err, doc) => {
+    AmalClubMember.find({ userId: req.params.userId }, (err, doc) => {
         if (!err) { res.send(doc); }
         else { console.log('Error in Retriving AmalClubMember :' + JSON.stringify(err, undefined, 2)); }
     });
@@ -34,26 +34,26 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-   /* bcrypt.hash(req.body.password, 10, function(err, hash){
-        if(err){
-            return res.status(500).json({
-                error:err
-                
-            });
-        }else{ console.log(hash);} });  */
+    /* bcrypt.hash(req.body.password, 10, function(err, hash){
+         if(err){
+             return res.status(500).json({
+                 error:err
+                 
+             });
+         }else{ console.log(hash);} });  */
 
-            var amalClubMember = new AmalClubMember({
-                    sport : req.body.sport,
-                    userId : req.body.userId,
-                    position : req.body.position
-                });
-                amalClubMember.save((err, doc) => {
-                    if (!err) { res.send(doc); }
-                    else { console.log('Error in AmalClubMember Save :' + JSON.stringify(err, undefined, 2)); }
-                });
+    var amalClubMember = new AmalClubMember({
+        sport: req.body.sport,
+        userId: req.body.userId,
+        position: req.body.position
+    });
+    amalClubMember.save((err, doc) => {
+        if (!err) { res.send(doc); }
+        else { console.log('Error in AmalClubMember Save :' + JSON.stringify(err, undefined, 2)); }
+    });
 
-        
-    
+
+
 });
 
 
@@ -64,9 +64,9 @@ router.put('/:id', (req, res) => {
 
     var amalClubMember = {
 
-                    sport : req.body.sport,
-                    userId : req.body.userId,
-                    position : req.body.position
+        sport: req.body.sport,
+        userId: req.body.userId,
+        position: req.body.position
     };
     AmalClubMember.findByIdAndUpdate(req.params.id, { $set: amalClubMember }, { new: true }, (err, doc) => {
         if (!err) { res.send(doc); }

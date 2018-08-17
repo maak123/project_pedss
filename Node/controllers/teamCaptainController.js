@@ -24,30 +24,30 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-   /* bcrypt.hash(req.body.password, 10, function(err, hash){
-        if(err){
-            return res.status(500).json({
-                error:err
-                
-            });
-        }else{ console.log(hash);} });  */
+    /* bcrypt.hash(req.body.password, 10, function(err, hash){
+         if(err){
+             return res.status(500).json({
+                 error:err
+                 
+             });
+         }else{ console.log(hash);} });  */
 
-            var teamCaptain = new TeamCaptain({
+    var teamCaptain = new TeamCaptain({
 
-                    userId : req.body.userId,
-                    faculty : req.body.faculty,
-                    indexNo : req.body.indexNo,
-                    subEventId : req.body.subEventId,
-                    teamCardId :  req.body.teamCardId
-            
-                });
-                teamCaptain.save((err, doc) => {
-                    if (!err) { res.send(doc); }
-                    else { console.log('Error in TeamCaptain Save :' + JSON.stringify(err, undefined, 2)); }
-                });
+        userId: req.body.userId,
+        faculty: req.body.faculty,
+        indexNo: req.body.indexNo,
+        subEventId: req.body.subEventId,
+        teamCardId: req.body.teamCardId
 
-        
-    
+    });
+    teamCaptain.save((err, doc) => {
+        if (!err) { res.send(doc); }
+        else { console.log('Error in TeamCaptain Save :' + JSON.stringify(err, undefined, 2)); }
+    });
+
+
+
 });
 
 
@@ -58,11 +58,11 @@ router.put('/:id', (req, res) => {
 
     var teamCaptain = {
 
-                    userId : req.body.userId,
-                    faculty : req.body.faculty,
-                    indexNo : req.body.indexNo,
-                    subEventId : req.body.subEventId,
-                    teamCardId :  req.body.teamCardId
+        userId: req.body.userId,
+        faculty: req.body.faculty,
+        indexNo: req.body.indexNo,
+        subEventId: req.body.subEventId,
+        teamCardId: req.body.teamCardId
     };
     TeamCaptain.findByIdAndUpdate(req.params.id, { $set: teamCaptain }, { new: true }, (err, doc) => {
         if (!err) { res.send(doc); }

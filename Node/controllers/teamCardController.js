@@ -1,4 +1,4 @@
- const express = require('express');
+const express = require('express');
 var router = express.Router();
 var ObjectId = require('mongoose').Types.ObjectId;
 //var bcrypt = require('bcrypt');
@@ -34,28 +34,28 @@ router.get('/teamcarduserlist/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-   /* bcrypt.hash(req.body.password, 10, function(err, hash){
-        if(err){
-            return res.status(500).json({
-                error:err
-                
-            });
-        }else{ console.log(hash);} });  */
+    /* bcrypt.hash(req.body.password, 10, function(err, hash){
+         if(err){
+             return res.status(500).json({
+                 error:err
+                 
+             });
+         }else{ console.log(hash);} });  */
 
-            var teamCard = new TeamCard({
-                        faculty : req.body.faculty,
-                        sport : req.body.sport,
-                        subEventId : req.body.subEventId,
-                        userIndexList : req.body.userIndexList
-                    
-                });
-                teamCard.save((err, doc) => {
-                    if (!err) { res.send(doc); }
-                    else { console.log('Error in TeamCard Save :' + JSON.stringify(err, undefined, 2)); }
-                });
+    var teamCard = new TeamCard({
+        faculty: req.body.faculty,
+        sport: req.body.sport,
+        subEventId: req.body.subEventId,
+        userIndexList: req.body.userIndexList
 
-        
-    
+    });
+    teamCard.save((err, doc) => {
+        if (!err) { res.send(doc); }
+        else { console.log('Error in TeamCard Save :' + JSON.stringify(err, undefined, 2)); }
+    });
+
+
+
 });
 
 
@@ -66,11 +66,11 @@ router.put('/:id', (req, res) => {
 
     var teamCard = {
 
-                        faculty : req.body.faculty,
-                        sport : req.body.sport,
-                        subEventId : req.body.subEventId,
-                        userIndexList : req.body.userIndexList
-                    
+        faculty: req.body.faculty,
+        sport: req.body.sport,
+        subEventId: req.body.subEventId,
+        userIndexList: req.body.userIndexList
+
     };
     TeamCard.findByIdAndUpdate(req.params.id, { $set: teamCard }, { new: true }, (err, doc) => {
         if (!err) { res.send(doc); }
