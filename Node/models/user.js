@@ -8,14 +8,11 @@ var User = mongoose.model('User', {
 	regNo: { type: String },
 	password: { type: String },
 	nic: { type: String },
-	telephone: { type: Number },
+	telephone: { type: String },
 	email: { type: String },
 	positions: { type: String },
 	sport: { type: String },
 	faculty: { type: String }
-
-
-
 });
 
 

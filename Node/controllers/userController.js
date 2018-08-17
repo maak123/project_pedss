@@ -158,26 +158,26 @@ router.delete('/:id', (req, res) => {
     });
 });
 
+
+
+
+
+
 router.post("/sendNotification", function (req, res) {
-
-
-
+    console.log(req.body);
     const accountSid = 'ACbeed9a86ca0eae9bb5c5192ed805e4f2';
     const authToken = '9fa5eef7ff686589730d6f0d0c198ffc';
     const client = require('twilio')(accountSid, authToken);
 
     client.messages
         .create({
-            body: `www.google.com`,
+            body: req.body.message,
             from: '+16164143086',
-            to: '+94710107019'
+            to: req.body.telephoneNo
         })
         .then(message => console.log(message.sid))
         .done();
     res.json({ state: true, msg: "send" });
-
-
-
 });
 
 module.exports = router;
