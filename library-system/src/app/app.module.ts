@@ -30,6 +30,8 @@ import { RegisterfacsportcaptainComponent } from './users/registermembers/regist
 import { CreateteamcaptainComponent } from './events/createteamcaptain/createteamcaptain.component';
 import { TeamcaptainComponent } from './users/teamcaptain/teamcaptain.component';
 
+import { HomeComponent } from './users/home/home.component';
+
 
 
 
@@ -52,7 +54,9 @@ import { TeamcaptainComponent } from './users/teamcaptain/teamcaptain.component'
      RegisteramalclubmemberComponent,
      RegisterfacsportcaptainComponent,
      CreateteamcaptainComponent,
-     TeamcaptainComponent 
+     TeamcaptainComponent,
+     
+     HomeComponent 
 
 
 
