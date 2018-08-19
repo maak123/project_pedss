@@ -7,7 +7,8 @@ var TeamCaptain = mongoose.model('TeamCaptain', {
 	faculty : { type: String },
 	indexNo : { type: String },
 	subEventId : { type : String },
-    teamCardId :  { type : String}
+    teamCardId :  { type : String},
+    isSubmitted : { type : Boolean }
 	
 	 
      

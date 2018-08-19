@@ -38,7 +38,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
     <!-- Left Column -->
     <div class="w3-col m3">
       <!-- Profile -->
-      <div class="w3-card-2 w3-round w3-white">
+      <div class="w3-card-2 w3-round w3-white" *ngIf="userService.selectedUser != null">
         <div class="w3-container">
          <h4 class="w3-center">My Profile</h4>
          <p class="w3-center"><img src="assets/img/user.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
@@ -143,16 +143,24 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
         <button type="button" class="w3-btn w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
         <button type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
       </div>
+
+
+
+
+
+
       
       <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
-        <img src="img_avatar5.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
-        <span class="w3-right w3-opacity">16 min</span>
-        <h4>Jane Doe</h4><br>
-        <hr class="w3-clear">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <button type="button" class="w3-btn w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
-        <button type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
+        <div *ngIf="showTeamCard && this.tempTeamCaptain != null"  >
+          <app-team-card [selectedTeamCaptain] = "tempTeamCaptain"></app-team-card>
+        </div>
       </div>  
+
+
+
+
+
+
 
       <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
         <img src="img_avatar6.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">

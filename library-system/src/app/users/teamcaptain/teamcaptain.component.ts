@@ -18,6 +18,7 @@ export class TeamcaptainComponent implements OnInit {
     selectedUser : User;
     selectedTeamCaptain : TeamCaptain;
     faculties : string[]=["UCSC","Science","Arts","Management"];
+    deletingId : string;
 
 
   constructor(private userService : UserService,private tostr : ToastrService,private teamCaptainService : TeamCaptainService) { }
@@ -29,6 +30,9 @@ export class TeamcaptainComponent implements OnInit {
 
 
   onSubmit(form: NgForm) {
+
+    
+
     if (form.value._id == null) {
       
       this.userService.postUser(form.value).subscribe((res) => {
@@ -37,14 +41,15 @@ export class TeamcaptainComponent implements OnInit {
         this.tostr.success('Submitted Succcessfully', 'User Register');
 
         this.teamCaptainService.selectedTeamCaptain={
-    	_id : null,
-	   	userId : "",
-		faculty : form.value.faculty,
-		indexNo : form.value.indexNo,
-		subEventId : this.subEventId,
-	    teamCardId :  ""
-	    }
-
+         _id : null,
+         userId : "",
+         faculty : form.value.faculty,
+         indexNo : form.value.indexNo,
+         subEventId : this.subEventId,
+         teamCardId :  "",
+         isSubmitted : false
+      }
+      
       this.teamCaptainService.postTeamCaptain(this.teamCaptainService.selectedTeamCaptain).subscribe((res) => {
         
         this.tostr.success('Submitted Succcessfully', 'Team Captain Register');
@@ -58,6 +63,12 @@ export class TeamcaptainComponent implements OnInit {
     }
     else {
       this.userService.putUser(form.value).subscribe((res) => {
+       
+        this.teamCaptainService.putTeamCaptain(this.teamCaptainService.selectedTeamCaptain).subscribe((res) => {
+        
+        this.tostr.success('Updated Succcessfully', 'Team Captain Register');
+         
+          });
         this.resetForm(form);
         
         this.tostr.success('Updated Succcessfully', 'User Register');
@@ -88,10 +99,12 @@ export class TeamcaptainComponent implements OnInit {
     this.teamCaptainService.selectedTeamCaptain={
     	_id : null,
 	   	userId : "",
-		faculty : "",
-		indexNo : "",
-		subEventId : "",
-	    teamCardId :  ""
+		  faculty : "",
+	  	indexNo : "",
+	  	subEventId : "",
+	    teamCardId :  "",
+      isSubmitted : false
+
 	    }
 
 	this.refreshTeamCaptainList();
@@ -104,6 +117,24 @@ export class TeamcaptainComponent implements OnInit {
     });
   }
 
+  onEdit(teamcaptain : TeamCaptain){
+    this.teamCaptainService.selectedTeamCaptain = teamcaptain;
+    this.userService.getUserByIndex(teamcaptain.indexNo as string).subscribe((res) => {
+    this.userService.selectedUser = res as User;});
 
+  }
+
+
+  onDelete(_id: string, form: NgForm) {
+     if (confirm('Are you sure to delete this record ?') == true) {
+
+      this.teamCaptainService.deleteTeamCaptain(_id).subscribe((res) => {
+        this.refreshTeamCaptainList();
+        //this.resetForm(form);
+        this.tostr.warning("Deleted Successfully", "User register");
+      });
+    }
+  
+  }
 
 }

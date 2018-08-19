@@ -37,6 +37,13 @@ router.get('/:id', (req, res) => {
     });
 });
 
+router.get('/indexNo/:indexNo', (req, res) => {
+    User.find( { indexNo : req.params.indexNo },(err, docs) => {
+        if (!err) { res.send(docs); }
+        else { console.log('Error in Retriving User :' + JSON.stringify(err, undefined, 2)); }
+    });
+});
+
 router.post('/', (req, res) => {
    /* bcrypt.hash(req.body.password, 10, function(err, hash){
         if(err){
@@ -70,7 +77,7 @@ router.post('/', (req, res) => {
         
     
 });
-router.get("/team",function (req,res){
+router.post("/team",function (req,res){
     const userIndexList = req.body.userIndexList;
          User.find({indexNo: { $in:userIndexList}}, function(err, docs){
          if (err) return res.status(500).send(err)
@@ -118,7 +125,7 @@ router.post("/login",function (req,res){
             }else {
                 res.json({state:false,msg:"password does not match"});
             } 
-        });*/
+        }); */
 
 });
 

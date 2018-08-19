@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+
+
 import { User } from '../shared/user';
 import { UserService } from '../shared/user.service';
 import { Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
 
+ 
 import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-login',
@@ -59,6 +62,7 @@ export class LoginComponent implements OnInit {
         form.reset();
 
       }
-      
+
+
     
 }

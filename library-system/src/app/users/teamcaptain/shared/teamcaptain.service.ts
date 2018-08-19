@@ -27,6 +27,10 @@ export class TeamCaptainService {
   getTeamCaptainList() {
     return this.http.get(this.baseURL);
   }
+
+  getTeamCaptainByIndex(indexNo : string ){
+    return this.http.get(this.baseURL+`/indexNo/${indexNo}`);
+  }
   
   getTeamCaptain(_id:string) {
     return this.http.get(this.baseURL + `/${_id}`);

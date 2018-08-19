@@ -22,6 +22,10 @@ export class TeamCardService {
   getTeamCardList() {
     return this.http.get(this.baseURL);
   }
+
+  getTeamCardListBySubEvent(subEventId : string) {
+    return this.http.get(this.baseURL+`/subEventId/${subEventId}`);
+  }
   
   getTeamCard(_id:string) {
     return this.http.get(this.baseURL + `/${_id}`);

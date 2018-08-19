@@ -13,6 +13,13 @@ router.get('/', (req, res) => {
     });
 });
 
+router.get('/subEventId/:subEventId', (req, res) => {
+    TeamCard.find( { subEventId : req.params.subEventId },(err, docs) => {
+        if (!err) { res.send(docs); }
+        else { console.log('Error in Retriving TeamCards :' + JSON.stringify(err, undefined, 2)); }
+    });
+});
+
 router.get('/:id', (req, res) => {
     if (!ObjectId.isValid(req.params.id))
         return res.status(400).send(`No record with given id : ${req.params.id}`);
