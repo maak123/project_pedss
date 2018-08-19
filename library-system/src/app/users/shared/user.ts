@@ -5,7 +5,7 @@ export class User {
 	regNo : string;
 	password : string;
 	nic : string ;
-	telephone : number ;
+	telephone : string ;
 	email : string ;
 	positions:string;
 	sport:string ;

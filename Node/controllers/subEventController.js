@@ -1,4 +1,4 @@
- const express = require('express');
+const express = require('express');
 var router = express.Router();
 var ObjectId = require('mongoose').Types.ObjectId;
 //var bcrypt = require('bcrypt');
@@ -24,31 +24,31 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-   /* bcrypt.hash(req.body.password, 10, function(err, hash){
-        if(err){
-            return res.status(500).json({
-                error:err
-                
-            });
-        }else{ console.log(hash);} });  */
+    /* bcrypt.hash(req.body.password, 10, function(err, hash){
+         if(err){
+             return res.status(500).json({
+                 error:err
+                 
+             });
+         }else{ console.log(hash);} });  */
 
-            var subEvent = new SubEvent({
-                    subEventName : req.body.subEventName,
-                    sport : req.body.sport,
-                    status : req.body.status,
-                    dateRange : req.body.dateRange,
-                    eventId : req.body.eventId,
-                    dateRange : req.body.dateRange,
-                    teamCardList : req.body.teamCardList
-                    
-                });
-                subEvent.save((err, doc) => {
-                    if (!err) { res.send(doc); }
-                    else { console.log('Error in SubEvent Save :' + JSON.stringify(err, undefined, 2)); }
-                });
+    var subEvent = new SubEvent({
+        subEventName: req.body.subEventName,
+        sport: req.body.sport,
+        status: req.body.status,
+        dateRange: req.body.dateRange,
+        eventId: req.body.eventId,
+        dateRange: req.body.dateRange,
+        teamCardList: req.body.teamCardList
 
-        
-    
+    });
+    subEvent.save((err, doc) => {
+        if (!err) { res.send(doc); }
+        else { console.log('Error in SubEvent Save :' + JSON.stringify(err, undefined, 2)); }
+    });
+
+
+
 });
 
 
@@ -59,14 +59,14 @@ router.put('/:id', (req, res) => {
 
     var subEvent = {
 
-                    subEventName : req.body.subEventName,
-                    sport : req.body.sport,
-                    status : req.body.status,
-                    dateRange : req.body.dateRange,
-                    eventId : req.body.eventId,
-                    dateRange : req.body.dateRange,
-                    teamCardList : req.body.teamCardList
-                    
+        subEventName: req.body.subEventName,
+        sport: req.body.sport,
+        status: req.body.status,
+        dateRange: req.body.dateRange,
+        eventId: req.body.eventId,
+        dateRange: req.body.dateRange,
+        teamCardList: req.body.teamCardList
+
     };
     SubEvent.findByIdAndUpdate(req.params.id, { $set: subEvent }, { new: true }, (err, doc) => {
         if (!err) { res.send(doc); }

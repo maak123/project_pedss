@@ -22,9 +22,9 @@ app.listen(3000, () => console.log('Server started at port : 3000'));
 
 
 app.use('/user', userController);
-app.use('/event',eventController);
-app.use('/subEvent',subEventController);
-app.use('/teamCard',teamCardController);
-app.use('/amalClubMember',amalClubMemberController);
-app.use('/facSportCaptain',facSportCaptainController);
-app.use('/teamCaptain',teamCaptainController);
+app.use('/event', eventController);
+app.use('/subEvent', subEventController);
+app.use('/teamCard', teamCardController);
+app.use('/amalClubMember', amalClubMemberController);
+app.use('/facSportCaptain', facSportCaptainController);
+app.use('/teamCaptain', teamCaptainController);
