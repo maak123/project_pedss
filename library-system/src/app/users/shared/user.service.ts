@@ -31,12 +31,16 @@ export class UserService {
     return this.http.get(this.baseURL);
   }
 
+  getUserByIndex(indexNo : string ){
+    return this.http.get(this.baseURL+`/indexNo/${indexNo}`);
+  }
+
   searchUser( word : string ){
     return this.http.get(this.baseURL + `/find/${word}`);
   }
 
   getUserListOfTeamCard(userIndexList : string) {
-    return this.http.get(this.baseURL + `/team/${userIndexList}`);
+    return this.http.post(this.baseURL + `/team`,{ userIndexList : userIndexList});
   }
   
   getUser(_id:string) {

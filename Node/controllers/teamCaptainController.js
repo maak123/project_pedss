@@ -13,6 +13,13 @@ router.get('/', (req, res) => {
     });
 });
 
+router.get('/indexNo/:indexNo', (req, res) => {
+    TeamCaptain.findOne( { indexNo : req.params.indexNo },(err, docs) => {
+        if (!err) { res.send(docs); }
+        else { console.log('Error in Retriving TeamCaptains :' + JSON.stringify(err, undefined, 2)); }
+    });
+});
+
 router.get('/:id', (req, res) => {
     if (!ObjectId.isValid(req.params.id))
         return res.status(400).send(`No record with given id : ${req.params.id}`);
@@ -24,30 +31,32 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    /* bcrypt.hash(req.body.password, 10, function(err, hash){
-         if(err){
-             return res.status(500).json({
-                 error:err
-                 
-             });
-         }else{ console.log(hash);} });  */
 
-    var teamCaptain = new TeamCaptain({
+   /* bcrypt.hash(req.body.password, 10, function(err, hash){
+        if(err){
+            return res.status(500).json({
+                error:err
+                
+            });
+        }else{ console.log(hash);} });  */
 
-        userId: req.body.userId,
-        faculty: req.body.faculty,
-        indexNo: req.body.indexNo,
-        subEventId: req.body.subEventId,
-        teamCardId: req.body.teamCardId
+            var teamCaptain = new TeamCaptain({
 
-    });
-    teamCaptain.save((err, doc) => {
-        if (!err) { res.send(doc); }
-        else { console.log('Error in TeamCaptain Save :' + JSON.stringify(err, undefined, 2)); }
-    });
+                    userId : req.body.userId,
+                    faculty : req.body.faculty,
+                    indexNo : req.body.indexNo,
+                    subEventId : req.body.subEventId,
+                    teamCardId :  req.body.teamCardId,
+                    isSubmitted : req.body.isSubmitted
+            
+                });
+                teamCaptain.save((err, doc) => {
+                    if (!err) { res.send(doc); }
+                    else { console.log('Error in TeamCaptain Save :' + JSON.stringify(err, undefined, 2)); }
+                });
 
-
-
+        
+    
 });
 
 
@@ -58,11 +67,15 @@ router.put('/:id', (req, res) => {
 
     var teamCaptain = {
 
-        userId: req.body.userId,
-        faculty: req.body.faculty,
-        indexNo: req.body.indexNo,
-        subEventId: req.body.subEventId,
-        teamCardId: req.body.teamCardId
+
+                    userId : req.body.userId,
+                    faculty : req.body.faculty,
+                    indexNo : req.body.indexNo,
+                    subEventId : req.body.subEventId,
+                    teamCardId :  req.body.teamCardId,
+                    isSubmitted : req.body.isSubmitted
+
+
     };
     TeamCaptain.findByIdAndUpdate(req.params.id, { $set: teamCaptain }, { new: true }, (err, doc) => {
         if (!err) { res.send(doc); }

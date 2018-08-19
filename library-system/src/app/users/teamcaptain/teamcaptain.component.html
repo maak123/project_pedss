@@ -92,15 +92,12 @@
                     <td>{{teamCaptain.faculty}}</td>
                     
                         <td>
-                        <a class="action-btn" >
-                          edit
-                        </a>
-                        <a class="action-btn" >
+                        <a class="action-btn w3-red" (click)="onDelete(teamCaptain._id,form)" >
                           delete
                         </a>
                        
                          
-                      </td>
+                       </td>
                     </ng-container>
                   </tr>
       </table>
