@@ -18,7 +18,4 @@ var TeamCaptain = mongoose.model('TeamCaptain', {
 
 
 
-});
-
-
 module.exports = { TeamCaptain };  
