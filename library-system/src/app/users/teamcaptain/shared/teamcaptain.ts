@@ -6,6 +6,7 @@ export class TeamCaptain {
 	indexNo : string;
 	subEventId : string;
     teamCardId :  string;
+    isSubmitted : boolean;
 	
 
 

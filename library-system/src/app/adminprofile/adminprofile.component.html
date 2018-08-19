@@ -7,11 +7,12 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 <!-- Navbar -->
  <div class="w3-bar w3-border w3-dark-grey w3-padding-large" >
   <a  class="w3-bar-item w3-button">Home</a>
-  <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=true;showEvent=false;showRegisterMembers=false;showTeamCard=false;showCreateTeamCaptain=false;">Users</a>
-  <a  class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=false;showEvent=true;showRegisterMembers=false;showTeamCard=false;showCreateTeamCaptain=false;">Events</a>
-  <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=false;showEvent=false;showRegisterMembers=false;showTeamCard=true;showCreateTeamCaptain=false;">TeamCard</a>
-  <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=false;showEvent=false;showRegisterMembers=true;showTeamCard=false;showCreateTeamCaptain=false;">Register Members</a>
-  <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=false;showEvent=false;showRegisterMembers=false;showTeamCard=false;showCreateTeamCaptain=true;">Register Team Captains</a>
+  <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=true;showEvent=false;showRegisterMembers=false;showTeamCard=false;showCreateTeamCaptain=false;showSubEvent=false;">Users</a>
+  <a  class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=false;showEvent=true;showRegisterMembers=false;showTeamCard=false;showCreateTeamCaptain=false;showSubEvent=false;">Events</a>
+  <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=false;showEvent=false;showRegisterMembers=false;showTeamCard=true;showCreateTeamCaptain=false;showSubEvent=false;">TeamCard</a>
+  <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=false;showEvent=false;showRegisterMembers=true;showTeamCard=false;showCreateTeamCaptain=false;showSubEvent=false;">Register Members</a>
+  <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=false;showEvent=false;showRegisterMembers=false;showTeamCard=false;showCreateTeamCaptain=false;showSubEvent=true;">SubEvent</a>
+  <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=false;showEvent=false;showRegisterMembers=false;showTeamCard=false;showCreateTeamCaptain=true;showSubEvent=false;">Register Team Captains</a>
   <a routerLink ="/" class="w3-bar-item w3-button w3-mobile w3-right" (click)="logOut()">log out</a>
  
   
@@ -40,8 +41,10 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
         <app-registermembers *ngIf="showRegisterMembers"></app-registermembers>
         <app-user *ngIf="showUsers"></app-user>
         <app-event *ngIf="showEvent"></app-event>
-        <app-team-card *ngIf="showTeamCard"></app-team-card>
+        <app-team-card *ngIf="showTeamCard" [selectedTeamCaptain] = "this.tempTeamCaptain"></app-team-card>
         <app-createteamcaptain *ngIf="showCreateTeamCaptain"></app-createteamcaptain>
+        <app-subevent *ngIf = "showSubEvent"></app-subevent>
+        <app-enterresults></app-enterresults>
       </div>
       
       

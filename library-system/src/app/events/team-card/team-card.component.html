@@ -78,8 +78,8 @@
             </form>
           </div>
          
-          <div class="col s7" style=" height: 520px; 
-overflow: scroll;">
+          <div class="col s7 w3-light-yellow" style=" height: 520px; 
+overflow: scroll;" >
               <table class="responsive-table highlight">
                   <thead>
                     <tr>
@@ -105,7 +105,15 @@ overflow: scroll;">
                   </tr>
                 </table>
 
-            
+                <br>
+              <p class="w3-grey">
+                sport-{{teamCardService.selectedTeamCard.sport}}<br>
+                faculty-{{teamCardService.selectedTeamCard.faculty}}<br>
+
+                <button class=" action-btn w3-button w3-red w3-center" (click)="onSubmitTeamCard()">Submit Team Card</button>
+
+              </p>
+              
           </div>
       </div> 
 </div>

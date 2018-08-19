@@ -13,6 +13,13 @@ router.get('/', (req, res) => {
     });
 });
 
+router.get('/indexNo/:indexNo', (req, res) => {
+    TeamCaptain.findOne( { indexNo : req.params.indexNo },(err, docs) => {
+        if (!err) { res.send(docs); }
+        else { console.log('Error in Retriving TeamCaptains :' + JSON.stringify(err, undefined, 2)); }
+    });
+});
+
 router.get('/:id', (req, res) => {
     if (!ObjectId.isValid(req.params.id))
         return res.status(400).send(`No record with given id : ${req.params.id}`);
@@ -38,7 +45,8 @@ router.post('/', (req, res) => {
                     faculty : req.body.faculty,
                     indexNo : req.body.indexNo,
                     subEventId : req.body.subEventId,
-                    teamCardId :  req.body.teamCardId
+                    teamCardId :  req.body.teamCardId,
+                    isSubmitted : req.body.isSubmitted
             
                 });
                 teamCaptain.save((err, doc) => {
@@ -62,7 +70,9 @@ router.put('/:id', (req, res) => {
                     faculty : req.body.faculty,
                     indexNo : req.body.indexNo,
                     subEventId : req.body.subEventId,
-                    teamCardId :  req.body.teamCardId
+                    teamCardId :  req.body.teamCardId,
+                    isSubmitted : req.body.isSubmitted
+
     };
     TeamCaptain.findByIdAndUpdate(req.params.id, { $set: teamCaptain }, { new: true }, (err, doc) => {
         if (!err) { res.send(doc); }

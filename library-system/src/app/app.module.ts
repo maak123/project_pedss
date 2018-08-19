@@ -29,6 +29,8 @@ import { RegisteramalclubmemberComponent } from './users/registermembers/registe
 import { RegisterfacsportcaptainComponent } from './users/registermembers/registerfacsportcaptain/registerfacsportcaptain.component';
 import { CreateteamcaptainComponent } from './events/createteamcaptain/createteamcaptain.component';
 import { TeamcaptainComponent } from './users/teamcaptain/teamcaptain.component';
+import { EnterresultsComponent } from './events/enterresults/enterresults.component';
+import { ShowuserbyindexComponent } from './users/user/showuserbyindex/showuserbyindex.component';
 
 
 
@@ -52,7 +54,9 @@ import { TeamcaptainComponent } from './users/teamcaptain/teamcaptain.component'
      RegisteramalclubmemberComponent,
      RegisterfacsportcaptainComponent,
      CreateteamcaptainComponent,
-     TeamcaptainComponent 
+     TeamcaptainComponent,
+     EnterresultsComponent,
+     ShowuserbyindexComponent 
 
 
 
