@@ -68,7 +68,8 @@ import { ViewteamcardbyidComponent } from './events/team-card/viewteamcardbyid/v
      ResultComponent,
      SportComponent,
      ViewresultComponent,
-     ViewteamcardbyidComponent 
+     ViewteamcardbyidComponent,
+     HomeComponent
 
 
 
