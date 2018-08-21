@@ -105,33 +105,6 @@ router.post("/login", function (req, res) {
     }
     );
 
-    /*
-
-    User.passwordCheck(password,user.password,function (err,match) {
-        if (err) throw  err;
-
-        if (match){
-
-            const token = jwt.sign(user, config.secret,{expiresIn:86400*3});
-            res.json(
-                {
-                    state:true,
-                    token:"JWT " + token,
-                    user:{
-                        name : req.body.name,
-                        indexNo : req.body.indexNo,
-                        regNo : req.body.regNo,
-                        password : req.body.password
-
-                    }
-
-                    )
-            }else {
-                res.json({state:false,msg:"password does not match"});
-            } 
-        }); */
-
-
 });
 
 
