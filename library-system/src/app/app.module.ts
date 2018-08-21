@@ -70,7 +70,8 @@ import { HomeComponent } from './users/home/home.component';
      ResultComponent,
      SportComponent,
      ViewresultComponent,
-     ViewteamcardbyidComponent 
+     ViewteamcardbyidComponent,
+     HomeComponent
 
 
 
