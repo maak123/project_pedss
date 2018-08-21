@@ -32,7 +32,7 @@ export class TeamCardComponent implements OnInit {
 
   ngOnInit() {
    
-    this.refreshUserList();
+    this.userService.users=[];
     this.resetForm();
     this.initTeamCard(this.selectedTeamCaptain);
   	
@@ -45,10 +45,14 @@ export class TeamCardComponent implements OnInit {
 
   }
 
-  refreshUserList(){
-    this.userService.getUserList().subscribe((res) => {
-      this.userService.users = res as User[];
-    });
+  refreshUserList(userIndex ?: string[]){
+    if(userIndex.length != 0){
+    userIndex.forEach(element => {
+      this.userService.getUserByIndex(element).subscribe((res) => {
+        this.userService.users.push(res as User);
+      });
+    });}
+    
   }
 
    
@@ -76,8 +80,7 @@ export class TeamCardComponent implements OnInit {
 
   onSelect(user : User){                            // this is for adding  & searching with the list
      this.userIndexList.push(user.indexNo as string);
-     console.log(this.userIndexList);
-
+     
   }
   
 
@@ -85,6 +88,7 @@ export class TeamCardComponent implements OnInit {
     if (form.value._id == null) {
       this.teamCardService.selectedTeamCard.userIndexList.push(form.value.indexNo as string);
       this.userService.postUser(form.value).subscribe((res) => {
+        
         this.resetForm(form);
         
         this.tostr.success('Submitted Succcessfully', 'User Register');
@@ -98,7 +102,7 @@ export class TeamCardComponent implements OnInit {
 
 
     }
-    this.refreshUserList();
+    this.refreshUserList(this.teamCardService.selectedTeamCard.userIndexList);
   }
 
   initTeamCard(teamCaptain : TeamCaptain){
@@ -110,6 +114,7 @@ export class TeamCardComponent implements OnInit {
           subEventId : teamCaptain.subEventId,
           userIndexList : []
         }
+        this.refreshUserList(this.teamCardService.selectedTeamCard.userIndexList);
   }
 
   onSubmitTeamCard(){

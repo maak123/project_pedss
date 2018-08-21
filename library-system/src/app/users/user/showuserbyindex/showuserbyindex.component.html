@@ -1,16 +1,13 @@
-<div class="w3-card-4">
+<div class="card" *ngIf="userService.selectedUser != null ">
 
-    <header class="w3-container w3-blue">
-      <h1>Header</h1>
-    </header>
-    
+  
     <div class="w3-container">
-      <div class=""></div>
+      <div class="row">
+        <div class="col-sm-6"><p>Name-{{userService.selectedUser.name}}</p></div>
+        <div class="col-sm-6"><p>Index no-{{userService.selectedUser.indexNo}}</p></div>
+      </div>
       
     </div>
-    
-    <footer class="w3-container w3-blue">
-      <h5>Footer</h5>
-    </footer>
-    
+ 
+   
 </div>

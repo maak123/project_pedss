@@ -11,6 +11,7 @@ import { TeamCard } from './teamcard';
 export class TeamCardService {
   selectedTeamCard : TeamCard;
   teamCards: TeamCard[];
+  selectedTeamCards : TeamCard[];
   readonly baseURL = 'http://localhost:3000/teamCard';
 
   constructor(private http: HttpClient) { }

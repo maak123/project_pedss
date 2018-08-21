@@ -55,7 +55,8 @@ export class SubeventComponent implements OnInit {
     this.subEventService.selectedSubEvent = {
       _id : null,
 	  subEventName : "",
-	  subEventDesc : "",
+    subEventDesc : "",
+    sport : "",
 	  eventId : null,
 	  dateRange : null,
 	  teamCardList : null
