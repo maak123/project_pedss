@@ -18,10 +18,10 @@
                 <div class="form-group col s6">
                 <label>Name :
                     <label style="color:red">*</label>
-                  </label>
+                </label>
                 
                 <div class="input-field col s12">
-                  <input class = "form-control" type="text"name="name" #name="ngModel" [(ngModel)]="userService.selectedUser.name" placeholder="Full Name" >
+                  <input class = "form-control" type="text"name="name" #name="ngModel" [(ngModel)]="userService.selectedUser.name" placeholder="Full Name" required >
                   </div>
                 </div>
               </div>
@@ -33,7 +33,7 @@
                   </label>
                 
                 <div class="input-field col s12">
-                  <input class = "form-control" type="text" name="indexNo" #name="ngModel" [(ngModel)]="userService.selectedUser.indexNo" placeholder="Index No" >
+                  <input class = "form-control" type="text" name="indexNo" #name="ngModel" [(ngModel)]="userService.selectedUser.indexNo" placeholder="Index No" required >
                   </div>
                 </div>
               </div>
@@ -47,7 +47,7 @@
                 </label>
                 
                 <div class="input-field col s12">
-                  <input class = "form-control" type="text" name="telephone" #name="ngModel" [(ngModel)]="userService.selectedUser.telephone" placeholder="Telephone" >
+                  <input class = "form-control" type="text" name="telephone" #name="ngModel" [(ngModel)]="userService.selectedUser.telephone" placeholder="Telephone" required>
                   </div>
                 </div>
               </div>
@@ -78,36 +78,24 @@
             </form>
           </div>
          
-          <div class="col s7 w3-light-yellow" style=" height: 520px; 
+          <div class="col s7 w3-yellow" style=" height: 520px; 
 overflow: scroll;" >
-              <table class="responsive-table highlight">
-                  <thead>
-                    <tr>
-                      <th>Name</th>
-                      <th>RegNo</th>
-                      <th></th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tr *ngFor="let user of userService.users">
-                    <td>{{user.name}}</td>
-                    <td>{{user.indexNo}}</td>
-                    <td>
-                        <a class="action-btn" (click)="onEdit(user)">
-                          edit
-                        </a>
-                    </td>
-                    <td>
-                        <a class="action-btn" (click)="onDelete(user._id,form)">
-                          delete
-                        </a>
-                    </td>
-                  </tr>
-                </table>
+          <div *ngIf="userService.users != null">
+            <div  *ngFor="let user of userService.users">
 
+              <ul>
+                <li> {{user.name}}</li>
+                <li>{{user.indexNo}} </li>
+              </ul>
+            
+            </div>
+            </div>
+              
                 <br>
               <p class="w3-grey">
-                sport-{{teamCardService.selectedTeamCard.sport}}<br>
+                
+                <app-showsubeventbyid [subEventId]="teamCardService.selectedTeamCard.subEventId"></app-showsubeventbyid>
+                
                 faculty-{{teamCardService.selectedTeamCard.faculty}}<br>
 
                 <button class=" action-btn w3-button w3-red w3-center" (click)="onSubmitTeamCard()">Submit Team Card</button>

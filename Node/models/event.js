@@ -6,7 +6,7 @@ var Event = mongoose.model('Event', {
     eventName : { type: String },
 	eventDesc : { type: String },
 	status : { type: String },
-	dateRange : { type: Object },
+	dateRange : { type: Object }
 	 
      
 });

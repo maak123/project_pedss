@@ -38,7 +38,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.get('/indexNo/:indexNo', (req, res) => {
-    User.find( { indexNo : req.params.indexNo },(err, docs) => {
+    User.findOne( { indexNo : req.params.indexNo },(err, docs) => {
         if (!err) { res.send(docs); }
         else { console.log('Error in Retriving User :' + JSON.stringify(err, undefined, 2)); }
     });

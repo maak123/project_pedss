@@ -1,0 +1,227 @@
+<div class="row" style="padding-top: 25px">
+  <div class="col-md-6">
+
+
+    <table class="w3-table">
+      <thead>
+        <tr class="w3-green">
+          <th>Name</th>
+          <th>Des</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tr *ngFor="let event of eventService.events">
+        <ng-container *ngIf="event.status=='activated'">
+          <td>{{event.eventName}}</td>
+          <td>{{event.eventDesc}}</td>
+
+          <td>
+            <button class=" action-btn w3-button w3-red" (click)="viewSubEvents(event)">View Sub Events</button>
+
+
+          </td>
+        </ng-container>
+      </tr>
+    </table>
+
+
+  </div>
+  <div class="col-md-6">
+
+    <table class="w3-table" *ngIf="showSubEventList">
+      <thead>
+        <tr class="w3-blue">
+          <th>Name</th>
+          <th>Sport</th>
+
+          <th></th>
+        </tr>
+      </thead>
+      <tr *ngFor="let subEvent of subEventService.subEvents">
+        <ng-container *ngIf="subEvent.eventId==selectedEventId">
+          <td>{{subEvent.subEventName}}</td>
+          <td>{{subEvent.sport}}</td>
+
+          <td>
+            <a class="action-btn w3-gray" (click)="enterResults(subEvent)">
+              View Teams
+            </a>
+
+
+          </td>
+        </ng-container>
+      </tr>
+    </table>
+
+  </div>
+
+
+  <div class="container" *ngIf="showEnterResults && showSubEventList ">
+    <table class="w3-table">
+      <thead>
+        <tr class="w3-blue">
+          <th>faculty</th>
+          <th>sub event details</th>
+          <th>user list</th>
+          <th *ngIf="false">place</th>
+
+          <th></th>
+        </tr>
+      </thead>
+      <tr *ngFor="let teamCard of teamCardService.teamCards; let i = index;">
+        <ng-container *ngIf="true">
+          <td>{{teamCard.faculty}}</td>
+          <td>
+            <app-showsubeventbyid [subEventId]="teamCard.subEventId"></app-showsubeventbyid>
+          </td>
+          <td>
+            <div *ngFor="let userIndex of teamCard.userIndexList">
+              <app-showuserbyindex [userIndex]="userIndex"></app-showuserbyindex>
+
+            </div>
+          </td>
+
+          <td *ngIf="false">
+            Index: {{ i }}
+            <button class=" action-btn w3-button w3-red" [ngClass]="{'active':isClicked[i]}" (click)="isClicked[i] = (isClicked[i]? false :true );">kgk  </button>
+
+          </td>
+
+        </ng-container>
+      </tr>
+    </table>
+  </div>
+
+</div>
+
+<div *ngIf="showEnterResults && showSubEventList && fals">
+
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+
+    <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="resultService.selectedResult._id">
+
+    <div class="form-group">
+      <app-showsubeventbyid [subEventId]="selectedSubEvent._id"></app-showsubeventbyid>
+    </div>
+
+
+
+    <div class="row">
+      <div class="form-group col-md-5 " *ngIf="showEnterResults && showSubEventList">
+        <div class="input-group">
+          <select class="form-control " name="type" required>
+            <option *ngFor="let teamCard of teamCardService.teamCards" value="{{teamCard._id}}">{{teamCard.faculty}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group col-md-2 w3-green" style="text-align: center;">
+        <label>
+          <h5>Vs</h5>
+        </label>
+      </div>
+
+      <div class="form-group col-md-5" *ngIf="showEnterResults && showSubEventList">
+        <div class="input-group">
+          <select class="form-control " name="type" required>
+            <option *ngFor="let teamCard of teamCardService.teamCards" value="{{teamCard._id}}">{{teamCard.faculty}}</option>
+          </select>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="form-group col-md-5" *ngIf="showEnterResults && showSubEventList">
+      <label>Winner</label>
+      <div class="input-group">
+        <select class="form-control " name="type" required>
+          <option *ngFor="let teamCard of teamCardService.teamCards" value="{{teamCard._id}}">{{teamCard.faculty}}</option>
+        </select>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label>Match Type</label>
+      <div class="input-group">
+        <select class="form-control " name="type" #type="ngModel" [(ngModel)]="resultService.selectedResult.type" required>
+          <option value="priminary">priminary</option>
+          <option value="quarterfinal">quarterfinal</option>
+          <option value="semifinal">semifinal</option>
+          <option value="final">final</option>
+        </select>
+      </div>
+    </div>
+
+
+
+    <div class="form-group">
+      <button type="submit" class="w3-button w3-blue w3-round" [disabled]="!form">Submit</button>
+    </div>
+
+
+  </form>
+</div>
+<div *ngIf="showEnterResults && showSubEventList && resultService.selectedResult != null">
+
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+  
+      <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="resultService.selectedResult._id">
+  
+      <div class="form-group">
+        <app-showsubeventbyid [subEventId]="selectedSubEvent._id"></app-showsubeventbyid>
+      </div>
+  
+  
+    <div class="row">
+  
+      <div class="form-group col-md-4" *ngIf="showEnterResults && showSubEventList">
+        <label>First</label>
+        <div class="input-group">
+          <select class="form-control " name="first" #first ="ngModel" [(ngModel)]="resultService.selectedResult.places.first" required>
+            <option *ngFor="let teamCard of teamCardService.teamCards" value="{{teamCard._id}}">{{teamCard.faculty}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group col-md-4" *ngIf="showEnterResults && showSubEventList">
+          <label>Second</label>
+          <div class="input-group">
+            <select class="form-control " name="second" #second ="ngModel" [(ngModel)]="resultService.selectedResult.places.second" required>
+              <option *ngFor="let teamCard of teamCardService.teamCards" value="{{teamCard._id}}">{{teamCard.faculty}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group col-md-4" *ngIf="showEnterResults && showSubEventList">
+            <label>Third</label>
+            <div class="input-group">
+              <select class="form-control " name="third" #third ="ngModel" [(ngModel)]="resultService.selectedResult.places.third" required>
+                <option *ngFor="let teamCard of teamCardService.teamCards" value="{{teamCard._id}}">{{teamCard.faculty}}</option>
+              </select>
+            </div>
+          </div>
+
+       </div>
+  
+      <div class="form-group">
+        <label>Match Type</label>
+        <div class="input-group">
+          <select class="form-control " name="type" #type="ngModel" [(ngModel)]="resultService.selectedResult.type" required>
+            <option value="priminary">priminary</option>
+            <option value="quarterfinal">quarterfinal</option>
+            <option value="semifinal">semifinal</option>
+            <option value="final">final</option>
+          </select>
+        </div>
+      </div>
+  
+  
+  
+      <div class="form-group">
+        <button type="submit" class="w3-button w3-blue w3-round" [disabled]="!form">Submit</button>
+      </div>
+  
+  
+    </form>
+  </div>

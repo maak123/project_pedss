@@ -29,8 +29,14 @@ import { RegisteramalclubmemberComponent } from './users/registermembers/registe
 import { RegisterfacsportcaptainComponent } from './users/registermembers/registerfacsportcaptain/registerfacsportcaptain.component';
 import { CreateteamcaptainComponent } from './events/createteamcaptain/createteamcaptain.component';
 import { TeamcaptainComponent } from './users/teamcaptain/teamcaptain.component';
-import { EnterresultsComponent } from './events/enterresults/enterresults.component';
+
 import { ShowuserbyindexComponent } from './users/user/showuserbyindex/showuserbyindex.component';
+import { ShowsubeventbyidComponent } from './events/subevent/showsubeventbyid/showsubeventbyid.component';
+import { ViewteamcardComponent } from './events/team-card/viewteamcard/viewteamcard.component';
+import { ResultComponent } from './events/result/result.component';
+import { SportComponent } from './shared/sport/sport.component';
+import { ViewresultComponent } from './events/result/viewresult/viewresult.component';
+import { ViewteamcardbyidComponent } from './events/team-card/viewteamcardbyid/viewteamcardbyid.component';
 
 
 
@@ -55,8 +61,14 @@ import { ShowuserbyindexComponent } from './users/user/showuserbyindex/showuserb
      RegisterfacsportcaptainComponent,
      CreateteamcaptainComponent,
      TeamcaptainComponent,
-     EnterresultsComponent,
-     ShowuserbyindexComponent 
+     
+     ShowuserbyindexComponent,
+     ShowsubeventbyidComponent,
+     ViewteamcardComponent,
+     ResultComponent,
+     SportComponent,
+     ViewresultComponent,
+     ViewteamcardbyidComponent 
 
 
 

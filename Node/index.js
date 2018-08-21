@@ -11,7 +11,8 @@ var teamCardController = require('./controllers/teamCardController.js');
 var amalClubMemberController = require('./controllers/amalClubMemberController.js');
 var facSportCaptainController = require('./controllers/facSportCaptainController.js');
 var teamCaptainController = require('./controllers/teamCaptainController.js');
-
+var resultController = require('./controllers/resultController.js');
+var sportController = require('./controllers/sportController.js');
 
 var app = express();
 app.use(bodyParser.json());
@@ -28,3 +29,5 @@ app.use('/teamCard',teamCardController);
 app.use('/amalClubMember',amalClubMemberController);
 app.use('/facSportCaptain',facSportCaptainController);
 app.use('/teamCaptain',teamCaptainController);
+app.use('/sport',sportController);
+app.use('/result',resultController);

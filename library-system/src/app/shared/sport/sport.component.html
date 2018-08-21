@@ -1,0 +1,75 @@
+
+
+<div style= "text-align:center">
+	<h2 class="jumbotron">Sports Register</h2>
+</div>
+<div class ="row">
+	<div class="col-md-7">
+		
+		<form #form="ngForm" (ngSubmit)="onSubmit(form)">
+
+			<input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="sportService.selectedSport._id">
+
+	        <div class="form-group">
+	        	<label>name</label>
+		        <input class="form-control" name="name" #name="ngModel" [(ngModel)]="sportService.selectedSport.name" placeholder="Name of the sport" required>
+          </div>
+          
+          <div class="form-group">
+	        	<label>players</label>
+		        <input class="form-control" name="playersNo" #playersNo="ngModel" [(ngModel)]="sportService.selectedSport.playersNo" placeholder="no of players" required>
+          </div>
+
+          <div class="form-group" *ngIf="false">
+	        	<label>Type</label>
+	        	<div class="input-group">
+	        	<select class = "form-control " name="type" #type="ngModel"[(ngModel)]="sportService.selectedSport.type" required>
+              <option value="team">team</option>
+              <option value="individual">individual</option>
+              
+	        	</select>
+	        	</div>
+	        </div>
+
+	        
+
+	       <div class="form-group">
+	       	<button type="submit" class="w3-button w3-blue w3-round" [disabled]="!form">Submit</button>
+	       </div>
+	
+
+    </form>
+
+	</div>
+	<div class="col-md-5">
+	<table class="w3-table">
+                  <thead>
+                    <tr class="w3-blue">
+                      <th>Name</th>
+                      <th>players</th>
+                      <th>type</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tr *ngFor="let sport of sportService.sports" >
+
+                    <td>{{sport.name}}</td>
+                    <td>{{sport.playersNo}}</td>
+                    <td>{{sport.type}}</td>
+                   
+                        <td>
+                        <a class="action-btn" (click)="onEdit(sport)">
+                          edit
+                        </a>
+                        <a class="action-btn" (click)="onDelete(sport._id)">
+                          delete
+                        </a>
+                      </td>
+                      
+                  </tr>
+          </table>
+
+     </div>
+        
+	
+</div>
