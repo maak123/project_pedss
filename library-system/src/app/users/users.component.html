@@ -1,21 +1,15 @@
-<div class="container"><br>
-  <div>
 
-    <nav id="butt" class="nav justify-content-center u">
-      <a routerLink="/home" routeLinkActive="active" style="margin-right:70px; color:rgb(67, 65, 99);">Home</a>
-      <a routerLink="/login" style="margin-right:70px;  color:rgb(67, 65, 99);">Login</a>
-      <a routerLink="/signup" style="margin-right:70px;  color:rgb(67, 65, 99);">Sign Up</a>
-
-    </nav>
-
-    <hr>
-
-  </div>
-
-  <router-outlet></router-outlet>    
-  <!--Router view goes here--> 
-
-  
+<div style= "text-align:center; height: 158px;">
+  <h2 class="jumbotron w3-grey">Welcome to University of colombo Physical education department Supportive System</h2>
 </div>
 
 
+<div class="container"> 
+<div class="w3-bar">
+  <button class="w3-bar-item w3-button w3-blue" style="width:50%" routerLink ="/login">Login</button>
+  <button class="w3-bar-item w3-button w3-light-blue" style="width:50%" routerLink ="/signup">SignUp</button>
+ 
+</div>
+
+ <router-outlet></router-outlet>
+</div>

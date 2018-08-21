@@ -38,8 +38,6 @@ import { SportComponent } from './shared/sport/sport.component';
 import { ViewresultComponent } from './events/result/viewresult/viewresult.component';
 import { ViewteamcardbyidComponent } from './events/team-card/viewteamcardbyid/viewteamcardbyid.component';
 
-import { HomeComponent } from './users/home/home.component';
-
 
 
 
@@ -71,8 +69,6 @@ import { HomeComponent } from './users/home/home.component';
      SportComponent,
      ViewresultComponent,
      ViewteamcardbyidComponent 
-
-
 
 
 
