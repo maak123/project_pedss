@@ -21,7 +21,6 @@ import { RegisteramalclubmemberComponent } from './users/registermembers/registe
 import { RegisterfacsportcaptainComponent } from './users/registermembers/registerfacsportcaptain/registerfacsportcaptain.component';
 
 
-import { HomeComponent } from './users/home/home.component';
 
 
 
@@ -31,13 +30,13 @@ export const appRoutes: Routes = [
 
     { path: 'user', component: UserComponent },
 
+    
 
+ 
+    
+     { path: 'profile', component: ProfileComponent },
 
-
-
-    { path: 'profile', component: ProfileComponent },
-
-    { path: 'adminprofile', component: AdminprofileComponent },
+      { path: 'adminprofile', component: AdminprofileComponent },
 
     {
         path: 'event', component: EventsComponent,
@@ -47,11 +46,11 @@ export const appRoutes: Routes = [
         path: 'subevent', component: EventsComponent,
         children: [{ path: '', component: SubeventComponent }]
     },
-    {
+      {
         path: 'teamcard', component: EventsComponent,
         children: [{ path: '', component: TeamCardComponent }]
     },
-
+    
     {
         path: 'signup', component: UsersComponent,
         children: [{ path: '', component: SignUpComponent }]
@@ -60,10 +59,6 @@ export const appRoutes: Routes = [
         path: 'login', component: UsersComponent,
         children: [{ path: '', component: LoginComponent }]
     },
-    {
-        path: 'home', component: UsersComponent,
-        children: [{ path: '', component: HomeComponent }]
-    },
-    { path: '', redirectTo: '/home', pathMatch: 'full' }
-
+    { path : '', redirectTo:'/login', pathMatch : 'full'}
+    
 ];

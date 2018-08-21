@@ -27,34 +27,34 @@ router.get('/user/:userId', (req, res) => {
     if (!ObjectId.isValid(req.params.userId))
         return res.status(400).send(`No record with given id : ${req.params.userId}`);
 
-    FacSportCaptain.find({ userId: req.params.userId }, (err, doc) => {
+    FacSportCaptain.find({userId : req.params.userId} , (err, doc) => {
         if (!err) { res.send(doc); }
         else { console.log('Error in Retriving FacSportCaptain :' + JSON.stringify(err, undefined, 2)); }
     });
 });
 
 router.post('/', (req, res) => {
-    /* bcrypt.hash(req.body.password, 10, function(err, hash){
-         if(err){
-             return res.status(500).json({
-                 error:err
-                 
-             });
-         }else{ console.log(hash);} });  */
+   /* bcrypt.hash(req.body.password, 10, function(err, hash){
+        if(err){
+            return res.status(500).json({
+                error:err
+                
+            });
+        }else{ console.log(hash);} });  */
 
-    var facSportCaptain = new FacSportCaptain({
-        sport: req.body.sport,
-        userId: req.body.userId,
-        faculty: req.body.faculty
+            var facSportCaptain = new FacSportCaptain({
+                   sport : req.body.sport,
+                    userId : req.body.userId,
+                    faculty : req.body.faculty
+                    
+                });
+                facSportCaptain.save((err, doc) => {
+                    if (!err) { res.send(doc); }
+                    else { console.log('Error in FacSportCaptain Save :' + JSON.stringify(err, undefined, 2)); }
+                });
 
-    });
-    facSportCaptain.save((err, doc) => {
-        if (!err) { res.send(doc); }
-        else { console.log('Error in FacSportCaptain Save :' + JSON.stringify(err, undefined, 2)); }
-    });
-
-
-
+        
+    
 });
 
 
@@ -65,10 +65,10 @@ router.put('/:id', (req, res) => {
 
     var facSportCaptain = {
 
-        sport: req.body.sport,
-        userId: req.body.userId,
-        faculty: req.body.faculty
-
+                    sport : req.body.sport,
+                    userId : req.body.userId,
+                    faculty : req.body.faculty
+                    
     };
     FacSportCaptain.findByIdAndUpdate(req.params.id, { $set: facSportCaptain }, { new: true }, (err, doc) => {
         if (!err) { res.send(doc); }

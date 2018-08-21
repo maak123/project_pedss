@@ -15,15 +15,13 @@ router.get('/', (req, res) => {
 
 //user search must availale for mutiple keys
 router.get('/find/:word', (req, res) => {
-    var regex = new RegExp(req.params.word, 'i');
-    User.find({
-        $or: [
-            { indexNo: regex },
-            { name: regex },
-            { faculty: regex },
-
-        ]
-    }, (err, docs) => {
+    var regex = new RegExp(req.params.word, 'i'); 
+    User.find( {$or: [
+    { indexNo: regex },
+    { name : regex },
+    { faculty: regex },
+    
+]} ,(err, docs) => {
         if (!err) { res.send(docs); }
         else { console.log('Error in Retriving Users :' + JSON.stringify(err, undefined, 2)); }
     });
@@ -47,63 +45,87 @@ router.get('/indexNo/:indexNo', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    /* bcrypt.hash(req.body.password, 10, function(err, hash){
-         if(err){
-             return res.status(500).json({
-                 error:err
-                 
-             });
-         }else{ console.log(hash);} });  */
+   /* bcrypt.hash(req.body.password, 10, function(err, hash){
+        if(err){
+            return res.status(500).json({
+                error:err
+                
+            });
+        }else{ console.log(hash);} });  */
 
-    var user = new User({
-
-
-
-        name: req.body.name,
-        indexNo: req.body.indexNo,
-        regNo: req.body.regNo,
-        password: req.body.password,
-        nic: req.body.nic,
-        telephone: req.body.telephone,
-        email: req.body.email,
-        positions: req.body.positions,
-        sport: req.body.sport,
-        faculty: req.body.faculty
-
-    });
-    user.save((err, doc) => {
-        if (!err) { res.send(doc); }
-        else { console.log('Error in User Save :' + JSON.stringify(err, undefined, 2)); }
-    });
+            var user = new User({
 
 
 
+                    name : req.body.name,
+                    indexNo : req.body.indexNo,
+                    regNo : req.body.regNo,
+                    password : req.body.password,
+                    nic : req.body.nic,
+                    telephone : req.body.telephone,
+                    email : req.body.email,
+                    positions:req.body.positions,
+                    sport:req.body.sport,
+                    faculty:req.body.faculty
+                    
+                });
+                user.save((err, doc) => {
+                    if (!err) { res.send(doc); }
+                    else { console.log('Error in User Save :' + JSON.stringify(err, undefined, 2)); }
+                });
+
+        
+    
 });
-
 router.post("/team",function (req,res){
-
     const userIndexList = req.body.userIndexList;
-    User.find({ indexNo: { $in: userIndexList } }, function (err, docs) {
-        if (err) return res.status(500).send(err)
+         User.find({indexNo: { $in:userIndexList}}, function(err, docs){
+         if (err) return res.status(500).send(err)
         return res.status(200).send(doc);
-    });
-});
+        });
+     });
 
 
 
 
-router.post("/login", function (req, res) {
+router.post("/login",function (req,res){
 
     const userName = req.body.userName;
     const password = req.body.password;
 
+    
 
-
-    User.findOne({ indexNo: userName }, (err, doc) => {
+    User.findOne(  { indexNo : userName },(err, doc) => {
         if (err) return res.status(500).send(err)
         return res.status(200).send(doc);
-    }
+        }
     );
+    
+        /*
+
+        User.passwordCheck(password,user.password,function (err,match) {
+            if (err) throw  err;
+
+            if (match){
+
+                const token = jwt.sign(user, config.secret,{expiresIn:86400*3});
+                res.json(
+                    {
+                        state:true,
+                        token:"JWT " + token,
+                        user:{
+                            name : req.body.name,
+                            indexNo : req.body.indexNo,
+                            regNo : req.body.regNo,
+                            password : req.body.password
+
+                        }
+                    }
+                    )
+            }else {
+                res.json({state:false,msg:"password does not match"});
+            } 
+        }); */
 
 });
 
@@ -114,16 +136,16 @@ router.put('/:id', (req, res) => {
 
     var user = {
 
-        name: req.body.name,
-        indexNo: req.body.indexNo,
-        regNo: req.body.regNo,
-        password: req.body.password,
-        nic: req.body.nic,
-        telephone: req.body.telephone,
-        email: req.body.email,
-        positions: req.body.positions,
-        sport: req.body.sport,
-        faculty: req.body.faculty
+                            name : req.body.name,
+                            indexNo : req.body.indexNo,
+                            regNo : req.body.regNo,
+                            password : req.body.password,
+                            nic : req.body.nic,
+                            telephone : req.body.telephone,
+                            email : req.body.email,
+                            positions:req.body.positions,
+                            sport:req.body.sport,
+                            faculty:req.body.faculty
     };
     User.findByIdAndUpdate(req.params.id, { $set: user }, { new: true }, (err, doc) => {
         if (!err) { res.send(doc); }
@@ -139,28 +161,6 @@ router.delete('/:id', (req, res) => {
         if (!err) { res.send(doc); }
         else { console.log('Error in User Delete :' + JSON.stringify(err, undefined, 2)); }
     });
-});
-
-
-
-
-
-
-router.post("/sendNotification", function (req, res) {
-    console.log(req.body);
-    const accountSid = 'ACbeed9a86ca0eae9bb5c5192ed805e4f2';
-    const authToken = '9fa5eef7ff686589730d6f0d0c198ffc';
-    const client = require('twilio')(accountSid, authToken);
-
-    client.messages
-        .create({
-            body: req.body.message,
-            from: '+16164143086',
-            to: req.body.telephoneNo
-        })
-        .then(message => console.log(message.sid))
-        .done();
-    res.json({ state: true, msg: "send" });
 });
 
 module.exports = router;

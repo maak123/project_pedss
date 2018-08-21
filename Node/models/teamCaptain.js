@@ -2,7 +2,6 @@
 const mongoose = require('mongoose');
 
 var TeamCaptain = mongoose.model('TeamCaptain', {
-
      
     userId : { type: String },
 	faculty : { type: String },
@@ -14,6 +13,7 @@ var TeamCaptain = mongoose.model('TeamCaptain', {
 	 
      
 });
+
 
 
 
