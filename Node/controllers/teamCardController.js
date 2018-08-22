@@ -20,6 +20,14 @@ router.get('/subEventId/:subEventId', (req, res) => {
     });
 });
 
+router.get('/userIndex/:userIndex', (req, res) => {
+    TeamCard.find( { userIndexList : req.params.userIndex },(err, docs) => {
+        if (!err) { res.send(docs); }
+        else { console.log('Error in Retriving TeamCards :' + JSON.stringify(err, undefined, 2)); }
+    });
+});
+
+
 router.get('/:id', (req, res) => {
     if (!ObjectId.isValid(req.params.id))
         return res.status(400).send(`No record with given id : ${req.params.id}`);
@@ -41,27 +49,30 @@ router.get('/teamcarduserlist/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    /* bcrypt.hash(req.body.password, 10, function(err, hash){
-         if(err){
-             return res.status(500).json({
-                 error:err
-                 
-             });
-         }else{ console.log(hash);} });  */
 
-    var teamCard = new TeamCard({
-        faculty: req.body.faculty,
-        sport: req.body.sport,
-        subEventId: req.body.subEventId,
-        userIndexList: req.body.userIndexList
+   /* bcrypt.hash(req.body.password, 10, function(err, hash){
+        if(err){
+            return res.status(500).json({
+                error:err
+                
+            });
+        }else{ console.log(hash);} });  */
 
-    });
-    teamCard.save((err, doc) => {
-        if (!err) { res.send(doc); }
-        else { console.log('Error in TeamCard Save :' + JSON.stringify(err, undefined, 2)); }
-    });
+            var teamCard = new TeamCard({
+                        faculty : req.body.faculty,
+                        sport : req.body.sport,
+                        subEventId : req.body.subEventId,
+                        userIndexList : req.body.userIndexList,
+                        teamCaptainIndexNo : req.body.teamCaptainIndexNo
+                    
+                });
+                teamCard.save((err, doc) => {
+                    if (!err) { res.send(doc); }
+                    else { console.log('Error in TeamCard Save :' + JSON.stringify(err, undefined, 2)); }
+                });
 
-
+        
+    
 
 });
 
@@ -73,10 +84,13 @@ router.put('/:id', (req, res) => {
 
     var teamCard = {
 
-        faculty: req.body.faculty,
-        sport: req.body.sport,
-        subEventId: req.body.subEventId,
-        userIndexList: req.body.userIndexList
+
+                        faculty : req.body.faculty,
+                        sport : req.body.sport,
+                        subEventId : req.body.subEventId,
+                        userIndexList : req.body.userIndexList,
+                        teamCaptainIndexNo : req.body.teamCaptainIndexNo
+                    
 
     };
     TeamCard.findByIdAndUpdate(req.params.id, { $set: teamCard }, { new: true }, (err, doc) => {

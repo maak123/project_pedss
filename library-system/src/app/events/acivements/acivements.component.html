@@ -1,0 +1,14 @@
+
+<div class="w3-container">
+    <div class ="w3-card-4 w3-round w3-white" *ngFor="let teamCard of teamCardService.teamCards">
+        <div class="w3-container">
+        <h5>{{teamCard.faculty}}</h5>
+        
+          <app-showsubeventbyid [subEventId]="teamCard.subEventId"></app-showsubeventbyid>
+        
+          <app-viewresultofuser [teamCardId] = "teamCard._id"></app-viewresultofuser>
+        
+ 
+      </div>
+    </div>
+</div>

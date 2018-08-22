@@ -106,7 +106,9 @@
                       <li>1st place</li>
                   
                 </ul>
-                <p>{{result.places.first}}</p>
+
+                <app-viewteamcardbyid [teamcardId]="result.places.first"></app-viewteamcardbyid> 
+
                 </div>
               </div>
 
@@ -119,7 +121,9 @@
                       <li>2nd place</li>
                   
                 </ul>
-                <p>{{result.places.second}}</p>
+
+                 <app-viewteamcardbyid [teamcardId]="result.places.second"></app-viewteamcardbyid> 
+
                 </div>
               </div>
 
@@ -132,7 +136,9 @@
                       <li>3rd place</li>
                   
                 </ul>
-                <p>{{result.places.third}}</p>
+                
+                <app-viewteamcardbyid [teamcardId]="result.places.third"></app-viewteamcardbyid>
+
                 </div>
               </div>
 

@@ -23,6 +23,7 @@ export class ProfileComponent implements OnInit {
 
   showTeamCard : boolean = false;  
   tempTeamCaptain : TeamCaptain;
+  selectedUserindex : string;
 
   constructor(private userService : UserService,private tostr : ToastrService,private teamCaptainService : TeamCaptainService) {
   }
@@ -31,8 +32,8 @@ export class ProfileComponent implements OnInit {
       this.showTeamCard=false;
   	  this.getProfile();
       this.checkUserIsTeamCaptain(localStorage.getItem('userIndex'));
-     // console.log(this.tempTeamCaptain);
-    }
+      
+  }
 
     getProfile(){
     	this.userService.getUser(localStorage.getItem('userId')).subscribe((res) => {

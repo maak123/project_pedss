@@ -1,80 +1,105 @@
 
+
+
+
+
   <div class="container-flued">
+    <div class="row nav">
+      <!-- nav bar started -->
+    
+        <div class="col-md-5">
+            
+        </div>
+        <div class="col-md-4 title" >
+            <p>UOC SPORTS</p>
+  
+        </div>
+         <div class="col-md-3">
+           
+            <div class="navbar">
+                <!-- <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a> 
+                <a href="#"><i class="fa fa-fw fa-search"></i> Search</a> 
+                <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a> --> 
+              
+                <a><i class="fa fa-fw fa-user"></i>User</a>
+                <a routerLink ="/"  (click)="logOut()"> Log out</a>
+            </div>
+         </div>
+   
+      
+      <!-- nav bar end -->
+
+    </div>
     <div class="row">
-      <div class="col-md-2">
-        <!-- side bar -->
-        <div class="sidenav ">
+      <div class="class col-md-2">
+         <!-- side bar -->
+         <div class="sidenav ">
             <a class="image"><img  src="../../assets/img/Uoc1.png" ></a>
             <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showEditUser=false">Home</a> 
             <ul *ngIf="userService.selectedUser!=null">
-            <li>Name -{{userService.selectedUser.name}}</li>
-            <li>indexNo -{{userService.selectedUser.indexNo}}</li>
-            <li>regNo -{{userService.selectedUser.regNo}}</li>
+            <li style="color: floralwhite">Name -{{userService.selectedUser.name}}</li>
+            <li style="color: floralwhite">indexNo -{{userService.selectedUser.indexNo}}</li>
+            <li style="color: floralwhite">regNo -{{userService.selectedUser.regNo}}</li>
             
           </ul>
           <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showEditUser=true">Change Details</a>
           
           </div>
           <!-- side bar end -->
-      </div>
-      <div class="col-md-10 ">
-        <div class="row nav">
-          <!-- nav bar started -->
-    
-        <div class="col-md-4">
-            
-        </div>
-        <div class="col-md-5 title" >
-            <p>UOC SPORTS</p>
-  
-        </div>
-         <div class="col-md-3">
-            <div class="navbar">
-                <!-- <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a> 
-                <a href="#"><i class="fa fa-fw fa-search"></i> Search</a> 
-                <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>  -->
-              
-                <a><i class="fa fa-fw fa-user"></i>User</a>
-                <a routerLink ="/"  (click)="logOut()"> Log out</a>
-            </div>
-         </div>
-  
-      
-      <!-- nav bar end -->
-        </div>
-        <div class="row">
 
-        <!-- Page Container -->
-        <div class="container content" style="max-width:1400px;margin-top:10px">    
+      </div>
+      <div class="class col-md-10">
+   <!-- Page Container -->
+   <div class="container content" style="max-width:1400px;margin-top:10px">    
    
   
-        <div class="container w3-card-2 w3-white w3-round w3-margin" ><br>
-          
-          <app-sign-up *ngIf = "showEditUser"></app-sign-up>
-              
+      <div class="container w3-card-2 w3-white w3-round w3-margin" ><br>
+        
+        <app-sign-up *ngIf = "showEditUser"></app-sign-up>
+
+           <div *ngIf="showTeamCard && this.tempTeamCaptain != null"  >
+        <app-team-card [selectedTeamCaptain] = "tempTeamCaptain"></app-team-card>
+           </div>
+        <div *ngIf="userService.selectedUser != null" >
+        <app-acivements [userIndex]="userService.selectedUser.indexNo"></app-acivements>
+        </div>
+        
+      </div>
       
-        <div *ngIf="showTeamCard && this.tempTeamCaptain != null"  >
-          <app-team-card [selectedTeamCaptain] = "tempTeamCaptain"></app-team-card>
-        </div>
-       
-
-          
-        </div>
-        
-        
-        
-     
-    
-  <!-- End Page Container -->
+      
+<!-- End Page Container -->
+    </div>
       </div>
-
-        </div>
-      </div>
-
     </div>
     
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
