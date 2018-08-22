@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
   isLoginError: boolean = false;
+  
   onSubmit(form: NgForm) {
     if (form.value.userName != null && form.value.userName === "admin") {
       this.router.navigate(['/adminprofile']);

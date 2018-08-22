@@ -57,6 +57,7 @@ export class TeamcaptainComponent implements OnInit {
          isSubmitted : false
       }
 
+      
         this.messageService.selectedMessage={
           _id: null,
           message:"fuck you",
