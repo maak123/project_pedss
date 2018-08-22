@@ -27,6 +27,10 @@ export class ResultService {
   getResultListBySubEvent(subEventId : string) {
     return this.http.get(this.baseURL+`/subEventId/${subEventId}`);
   }
+
+  getResultByTeamCardId(teamCardId : string ){
+    return this.http.get(this.baseURL+`/teamCardId/${teamCardId}`);
+  }
   
   getResult(_id:string) {
     return this.http.get(this.baseURL + `/${_id}`);

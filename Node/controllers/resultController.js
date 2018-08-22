@@ -20,6 +20,13 @@ router.get('/subEventId/:subEventId', (req, res) => {
     });
 });
 
+router.get('/teamCardId/:teamCardId', (req, res) => {
+    Result.find( { teamCardList : req.params.teamCardId },(err, docs) => {
+        if (!err) { res.send(docs); }
+        else { console.log('Error in Retriving Results :' + JSON.stringify(err, undefined, 2)); }
+    });
+});
+
 
 router.get('/:id', (req, res) => {
     if (!ObjectId.isValid(req.params.id))

@@ -5,5 +5,5 @@ export class TeamCard {
 	sport : string;
 	subEventId : string;
 	userIndexList : string[];
-
+    teamCaptainIndex : string;
 }

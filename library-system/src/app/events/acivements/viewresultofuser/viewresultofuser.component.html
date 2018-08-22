@@ -1,0 +1,67 @@
+<div *ngIf="true">
+    <div *ngFor="let result of resultService.results">
+      <div class="container">
+        <h1>{{result.matchType}} match</h1>
+        <div class="row">
+
+
+          <div class="w3-card-2 w3-round w3-white" *ngIf = "result.places.first == teamCardId">
+            <div class="w3-container">
+             <h4 class="w3-center"> </h4>
+             <p class="w3-center"><img src="assets/img/trophy.jpg" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
+             <hr>
+             <ul>
+                    <li>1st place</li>
+                
+              </ul>
+              
+              </div>
+            </div>
+
+            <div class="w3-card-2 w3-round w3-white"  *ngIf = "result.places.second == teamCardId">
+            <div class="w3-container">
+             <h4 class="w3-center"></h4>
+             <p class="w3-center"><img src="assets/img/trophy.jpg" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
+             <hr>
+             <ul>
+                    <li>2nd place</li>
+                
+              </ul>
+               
+              </div>
+            </div>
+
+            <div class="w3-card-2 w3-round w3-white"  *ngIf = "result.places.third == teamCardId">
+            <div class="w3-container">
+             <h4 class="w3-center"></h4>
+             <p class="w3-center"><img src="assets/img/trophy.jpg" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
+             <hr>
+             <ul>
+                    <li>3rd place</li>
+                
+              </ul>
+              
+              
+              </div>
+            </div>
+
+            <div class="w3-card-2 w3-round w3-white"  *ngIf = "result.places.first != teamCardId && result.places.second != teamCardId && result.places.third != teamCardId">
+                <div class="w3-container">
+                 <h4 class="w3-center"></h4>
+                 <p class="w3-center"><img src="assets/img/trophy.jpg" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
+                 <hr>
+                 <ul>
+                        <li>Participation</li>
+                    
+                  </ul>
+                  
+                  
+                  </div>
+                </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+

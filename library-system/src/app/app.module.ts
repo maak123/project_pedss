@@ -37,6 +37,8 @@ import { ResultComponent } from './events/result/result.component';
 import { SportComponent } from './shared/sport/sport.component';
 import { ViewresultComponent } from './events/result/viewresult/viewresult.component';
 import { ViewteamcardbyidComponent } from './events/team-card/viewteamcardbyid/viewteamcardbyid.component';
+import { AcivementsComponent } from './events/acivements/acivements.component';
+import { ViewresultofuserComponent } from './events/acivements/viewresultofuser/viewresultofuser.component';
 
 
 
@@ -68,7 +70,9 @@ import { ViewteamcardbyidComponent } from './events/team-card/viewteamcardbyid/v
      ResultComponent,
      SportComponent,
      ViewresultComponent,
-     ViewteamcardbyidComponent 
+     ViewteamcardbyidComponent,
+     AcivementsComponent,
+     ViewresultofuserComponent 
 
 
 

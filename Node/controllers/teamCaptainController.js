@@ -47,6 +47,7 @@ router.post('/', (req, res) => {
                     subEventId : req.body.subEventId,
                     teamCardId :  req.body.teamCardId,
                     isSubmitted : req.body.isSubmitted
+                    
             
                 });
                 teamCaptain.save((err, doc) => {

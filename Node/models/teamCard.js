@@ -6,7 +6,8 @@ var TeamCard = mongoose.model('TeamCard', {
     faculty : { type: String },
 	sport : { type: String },
 	subEventId : { type: String },
-	userIndexList : [{ type : String}]
+	userIndexList : [{ type : String}],
+	teamCaptainIndexNo: {type : String}
 	
 	 
      

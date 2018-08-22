@@ -2,16 +2,13 @@
 
   
   <div class="w3-container">
-    <div class="row">
-      <div class="col-sm-6"><p>Faculty-{{selectedTeamCard.faculty}}</p></div>
-      <div class="col-sm-6"><p>Student list</p>
-      <div *ngFor="let userIndex of selectedTeamCard.userIndexList">
-        <app-showuserbyindex [userIndex]="userIndex"></app-showuserbyindex>
-
-      </div>
-      </div>
-    </div>
-    
+       <ul>
+      <li>Faculty-{{teamCardService.selectedTeamCard.faculty}}</li>
+      </ul>
+      <div *ngFor="let userIndex of teamCardService.selectedTeamCard.userIndexList">
+         <app-showuserbyindex [userIndex]="userIndex"></app-showuserbyindex>
+        </div>   
+      
   </div>
 
  

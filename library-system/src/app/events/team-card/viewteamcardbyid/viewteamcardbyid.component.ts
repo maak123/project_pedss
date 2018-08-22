@@ -14,8 +14,15 @@ export class ViewteamcardbyidComponent implements OnInit {
   constructor(private teamCardService : TeamCardService) { }
 
   ngOnInit() {
+    console.log(this.teamcardId);
     this.teamCardService.getTeamCard(this.teamcardId).subscribe((res) => {
       this.teamCardService.selectedTeamCard = res as TeamCard;
+    });
+  }
+
+  onDelete(_id : string){
+     this.teamCardService.deleteTeamCard(_id).subscribe((res) => {
+      console.log("deleted");
     });
   }
 
