@@ -1,150 +1,16 @@
-<!-- <div class="container">
-  <form class="test" #form="ngForm" (ngSubmit)="onSubmit(form)">
+<hr class="colorgraph">
+<div class="card card-container" style="padding-bottom:20px; background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));
+">
 
-
-    <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userService.selectedUser._id">
-
-
-    <div class="row">
-      <div class="form-group col s6">
-        <label>Name :
-          <label style="color:red">*</label>
-        </label>
-
-        <div class="input-field col s12">
-          <input class="form-control" type="text" name="name" #name="ngModel" [(ngModel)]="userService.selectedUser.name" placeholder="Full Name">
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="form-group col s6">
-        <label>IndexNo :
-          <label style="color:red">*</label>
-        </label>
-
-        <div class="input-field col s12">
-          <input class="form-control" type="text" name="indexNo" #name="ngModel" [(ngModel)]="userService.selectedUser.indexNo" placeholder="Index No">
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="form-group col s6">
-        <label>
-          RegNo :
-        </label>
-
-        <div class="input-field col s12">
-          <input class="form-control" type="text" name="regNo" #name="ngModel" [(ngModel)]="userService.selectedUser.regNo" placeholder="Registration No">
-        </div>
-      </div>
-    </div>
-
-    <div class="form-group row col s6">
-      <label>
-        Faculty :
-      </label>
-
-      <div class="input-group">
-        <select class="form-control " name="faculty" #name="ngModel" [(ngModel)]="userService.selectedUser.faculty" required>
-          <option *ngFor=" let faculty of faculties" value={{faculty}}>{{faculty}}</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="form-group col s6">
-        <label>
-          NIC :
-        </label>
-
-        <div class="input-field col s12">
-          <input class="form-control" type="text" name="nic" #name="ngModel" [(ngModel)]="userService.selectedUser.nic" placeholder="NIC">
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="form-group col s6">
-        <label>
-          Telephone :
-        </label>
-
-        <div class="input-field col s12">
-          <input class="form-control" type="text" name="telephone" #name="ngModel" [(ngModel)]="userService.selectedUser.telephone"
-            placeholder="Telephone">
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="form-group col s6">
-        <label>
-          Email :
-        </label>
-
-        <div class="input-field col s12">
-          <input class="form-control" type="text" name="email" #name="ngModel" [(ngModel)]="userService.selectedUser.email" placeholder="Email">
-        </div>
-      </div>
-    </div>
-    
-                <div class="row">
-                      <div class="form-group col s6" >
-                  <label>Position</label>
-                   <select class = "form-control " name="positions" #name= "ngModel" [(ngModel)]="userService.selectedUser.positions">
-                    <option value="Captain">Captain</option>
-                          <option value="Vice Captain">Vice Captain</option>
-                      </select> 
-                  </div>
-                   
-                <div class="form-group col s6">
-                  <label>Sport</label>
-                  <input class="form-control" name="sport" #name="ngModel" [(ngModel)]="userService.selectedUser.sport" placeholder="Sport" required>
-                </div>
-                  
-                </div>
-
-
-
-
-    <div class="row">
-      <div class="form-group col s6">
-        <label>
-          Password :
-        </label>
-
-        <div class="input-field col s12">
-          <input class="form-control" type="password" name="password" #name="ngModel" [(ngModel)]="userService.selectedUser.password">
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="form-group col s6">
-        <div class="input-field col s12">
-          <button class="w3-button w3-blue w3-round w3-right " type="button" (click)="resetForm(form)">Reset</button>
-          <button class="w3-button w3-blue w3-round" type="submit" [disabled]="!form.valid">Submit</button>
-        </div>
-      </div>
-    </div>
-
-  </form> -->
-
-
-
-<div class="container">
-  
   <div class="row">
     <div class="col-xs-12 col-sm-8 col-md-2 col-sm-offset-2 col-md-offset-3 background"></div>
     <div class="col-xs-12 col-sm-8 col-md-8 col-sm-offset-2 col-md-offset-3">
-      <h2 class="form-signup-heading">SignUp Form</h2>
-      <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+      <h2 class="form-signup-heading">Signup Form</h2>
+      <form #form="ngForm" (ngSubmit)="onSubmit(form)" data-toggle="validator">
 
         <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userService.selectedUser._id">
 
-        <hr class="colorgraph">
+
 
 
         <div class="form-group">
@@ -180,8 +46,15 @@
         </div>
 
         <div class="form-group">
-          <input type="text" name="telephone" #name="ngModel" [(ngModel)]="userService.selectedUser.telephone" class="form-control input-lg"
-            placeholder="Mobile No:" tabindex="4" required>
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <i class="">+94</i>
+              </div>
+            </div>
+            <input type="text" name="telephone" #name="ngModel" [(ngModel)]="userService.selectedUser.telephone" class="form-control input-lg"
+              placeholder="Mobile No:" tabindex="4" data-minlength="9" required>
+          </div>
         </div>
 
         <div class="form-group">
@@ -191,19 +64,19 @@
 
         <div class="form-group">
           <input type="password" name="password" #name="ngModel" [(ngModel)]="userService.selectedUser.password" class="form-control input-lg"
-            placeholder="Password" tabindex="4" required>
+            placeholder="Password" tabindex="4" data-minlength="6" required>
         </div>
+
 
 
         <div class="row">
 
           <div class="col-xs-12 col-md-6">
-            <!-- <input type="submit"[disabled]="!form.valid" class="btn btn-primary btn-block btn-lg" tabindex=""> -->
+
             <button class="btn btn-success" type="submit" [disabled]="!form.valid" style="width:200px">Submit</button>
           </div>
 
           <div class="col-xs-12 col-md-6">
-            <!-- <input type="submit"[disabled]="!form.valid" class="btn btn-primary btn-block btn-lg" tabindex=""> -->
             <button class="btn btn-primary btn-sm" type="button" (click)="resetForm(form)" style="float: right;">Clear</button>
           </div>
         </div>
@@ -213,6 +86,6 @@
     </div>
     <div class="col-xs-12 col-sm-8 col-md-2 col-sm-offset-2 col-md-offset-3 background"></div>
   </div>
-  
+
 </div>
 <div class="col-xs-12 col-md-12 background"></div>

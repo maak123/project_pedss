@@ -1,87 +1,79 @@
 <div class="container-flued">
   <div class="row">
     <div class="col-md-2">
-      <!-- side bar -->
+
       <div class="sidenav ">
-          <a class="image"><img  src="../../assets/img/Uoc1.png" ></a> 
-          
-          <a  class="w3-bar-item w3-button" (click)="showUsers=false;showEvent=false;showRegisterMembers=false;showTeamCard=false;showCreateTeamCaptain=falses;showSubEvent=false;showViewTeamCard=false;showSport=false;showSubmitResults=false;showViewResult=false;">Home</a>
-          <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=true;showEvent=false;showRegisterMembers=false;showTeamCard=false;showCreateTeamCaptain=false;showSubEvent=false;showViewTeamCard=false;showSport=false;showSubmitResults=false;showViewResult=false;">Users</a>
-          <a  class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=false;showEvent=true;showRegisterMembers=false;showTeamCard=false;showCreateTeamCaptain=false;showSubEvent=false;showViewTeamCard=false;showSport=false;showSubmitResults=false;showViewResult=false;">Events</a>
-          <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=false;showEvent=false;showRegisterMembers=false;showTeamCard=true;showCreateTeamCaptain=false;showSubEvent=false;showViewTeamCard=false;showSport=false;showSubmitResults=false;showViewResult=false;">TeamCard</a>
-          <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=false;showEvent=false;showRegisterMembers=true;showTeamCard=false;showCreateTeamCaptain=false;showSubEvent=false;showViewTeamCard=false;showSport=false;showSubmitResults=false;showViewResult=false;">Register Members</a>
-          <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=false;showEvent=false;showRegisterMembers=false;showTeamCard=false;showCreateTeamCaptain=false;showSubEvent=true;showViewTeamCard=false;showSport=false;showSubmitResults=false;showViewResult=false;">SubEvent</a>
-          <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=false;showEvent=false;showRegisterMembers=false;showTeamCard=false;showCreateTeamCaptain=true;showSubEvent=false;showViewTeamCard=false;showSport=false;showSubmitResults=false;showViewResult=false;">Register Team Captains</a>
-          <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=false;showEvent=false;showRegisterMembers=false;showTeamCard=false;showCreateTeamCaptain=falses;showSubEvent=false;showViewTeamCard=true;showSport=false;showSubmitResults=false;showViewResult=false;">View Team card</a>
-          <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=false;showEvent=false;showRegisterMembers=false;showTeamCard=false;showCreateTeamCaptain=falses;showSubEvent=false;showViewTeamCard=false;showSport=true;showSubmitResults=false;showViewResult=false;">Sports</a>
-          <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=false;showEvent=false;showRegisterMembers=false;showTeamCard=false;showCreateTeamCaptain=falses;showSubEvent=false;showViewTeamCard=false;showSport=false;showSubmitResults=true;showViewResult=false;">Submit Result</a>
-          <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=false;showEvent=false;showRegisterMembers=false;showTeamCard=false;showCreateTeamCaptain=falses;showSubEvent=false;showViewTeamCard=false;showSport=false;showSubmitResults=false;showViewResult=true;">View Result</a>
-               
-            </div>
-        <!-- side bar end -->
-    </div>
-    <div class="col-md-10 ">
-      <div class="row nav">
-        <!-- nav bar started -->
-  
-      <div class="col-md-4">
-          
+        <a class="image">
+          <img src="../../assets/img/Uoc1.png">
+        </a>
+
+        <a class="w3-bar-item w3-button" (click)="showUsers=false;showEvent=false;showRegisterMembers=false;showTeamCard=false;showCreateTeamCaptain=falses;showSubEvent=false;showViewTeamCard=false;showSport=false;showSubmitResults=false;showViewResult=false;">Home</a>
+        <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=false;showEvent=false;showRegisterMembers=true;showTeamCard=false;showCreateTeamCaptain=false;showSubEvent=false;showViewTeamCard=false;showSport=false;showSubmitResults=false;showViewResult=false;">Register Members</a>
+
+        <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=true;showEvent=false;showRegisterMembers=false;showTeamCard=false;showCreateTeamCaptain=false;showSubEvent=false;showViewTeamCard=false;showSport=false;showSubmitResults=false;showViewResult=false;">Users</a>
+        <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=false;showEvent=true;showRegisterMembers=false;showTeamCard=false;showCreateTeamCaptain=false;showSubEvent=false;showViewTeamCard=false;showSport=false;showSubmitResults=false;showViewResult=false;">Events</a>
+        <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=false;showEvent=false;showRegisterMembers=false;showTeamCard=false;showCreateTeamCaptain=false;showSubEvent=true;showViewTeamCard=false;showSport=false;showSubmitResults=false;showViewResult=false;">SubEvent</a>
+        <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=false;showEvent=false;showRegisterMembers=false;showTeamCard=true;showCreateTeamCaptain=false;showSubEvent=false;showViewTeamCard=false;showSport=false;showSubmitResults=false;showViewResult=false;">TeamCard</a>
+
+        <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=false;showEvent=false;showRegisterMembers=false;showTeamCard=false;showCreateTeamCaptain=true;showSubEvent=false;showViewTeamCard=false;showSport=false;showSubmitResults=false;showViewResult=false;">Register Team Captains</a>
+        <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=false;showEvent=false;showRegisterMembers=false;showTeamCard=false;showCreateTeamCaptain=falses;showSubEvent=false;showViewTeamCard=true;showSport=false;showSubmitResults=false;showViewResult=false;">View Team card</a>
+        <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=false;showEvent=false;showRegisterMembers=false;showTeamCard=false;showCreateTeamCaptain=falses;showSubEvent=false;showViewTeamCard=false;showSport=true;showSubmitResults=false;showViewResult=false;">Sports</a>
+        <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=false;showEvent=false;showRegisterMembers=false;showTeamCard=false;showCreateTeamCaptain=falses;showSubEvent=false;showViewTeamCard=false;showSport=false;showSubmitResults=true;showViewResult=false;">Submit Result</a>
+        <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=false;showEvent=false;showRegisterMembers=false;showTeamCard=false;showCreateTeamCaptain=falses;showSubEvent=false;showViewTeamCard=false;showSport=false;showSubmitResults=false;showViewResult=true;">View Result</a>
+
       </div>
-      <div class="col-md-5 title" >
+
+    </div>
+
+
+    <div class="col-md-10">
+      <div class="container-flued">
+        <div class="nav raw">
+
+
+
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-5 title">
           <p>UOC SPORTS</p>
 
-      </div>
-       <div class="col-md-3">
+        </div>
+        <div class="col-md-3">
           <div class="navbar">
-              <!-- <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a> 
-              <a href="#"><i class="fa fa-fw fa-search"></i> Search</a> 
-              <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>  -->
-            
-              <a><i class="fa fa-fw fa-user"></i>Admin</a>
-              <a routerLink ="/"  (click)="logOut()"> Log out</a>
+
+
+            <a>
+              <i class="fa fa-fw fa-user"></i>Admin</a>
+            <a routerLink="/" (click)="logOut()"> Log out</a>
           </div>
-       </div>
-
-    
-    <!-- nav bar end -->
+        </div>
       </div>
-      <div class="row">
 
-      <!-- Page Container -->
-      <div class="container content" style="max-width:1400px;margin-top:10px">    
- 
 
-      <div class="container w3-card-2 w3-white w3-round w3-margin" ><br>
-        <app-registermembers *ngIf="showRegisterMembers"></app-registermembers>
-        <app-user *ngIf="showUsers"></app-user>
-        <app-event *ngIf="showEvent"></app-event>
-        <app-team-card *ngIf="showTeamCard" [selectedTeamCaptain] = "this.tempTeamCaptain"></app-team-card>
-        <app-createteamcaptain *ngIf="showCreateTeamCaptain"></app-createteamcaptain>
-        <app-subevent *ngIf = "showSubEvent"></app-subevent>
-        <app-viewteamcard *ngIf="showViewTeamCard"></app-viewteamcard>
-        <app-sport *ngIf="showSport"></app-sport>
-        <app-result *ngIf="showSubmitResults"></app-result>
-        <app-viewresult *ngIf="showViewResult"></app-viewresult>
-      </div>
-      
-      
-      
-   
-  
-<!-- End Page Container -->
-    </div>
 
+
+        <div class="row">
+
+
+          <div class="container content" style="max-width:1400px;margin-top:10px">
+
+
+            <div class="container w3-card-2 w3-white w3-round w3-margin">
+              <br>
+              <app-registermembers *ngIf="showRegisterMembers"></app-registermembers>
+              <app-user *ngIf="showUsers"></app-user>
+              <app-event *ngIf="showEvent"></app-event>
+              <app-team-card *ngIf="showTeamCard" [selectedTeamCaptain]="this.tempTeamCaptain"></app-team-card>
+              <app-createteamcaptain *ngIf="showCreateTeamCaptain"></app-createteamcaptain>
+              <app-subevent *ngIf="showSubEvent"></app-subevent>
+              <app-viewteamcard *ngIf="showViewTeamCard"></app-viewteamcard>
+              <app-sport *ngIf="showSport"></app-sport>
+              <app-result *ngIf="showSubmitResults"></app-result>
+              <app-viewresult *ngIf="showViewResult"></app-viewresult>
+            </div>
+
+          </div>
+        </div>
       </div>
     </div>
-
-  </div>
-  
-
-</div>
-
-
-
-
-
-
-
