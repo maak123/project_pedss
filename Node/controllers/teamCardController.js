@@ -1,4 +1,4 @@
- const express = require('express');
+const express = require('express');
 var router = express.Router();
 var ObjectId = require('mongoose').Types.ObjectId;
 //var bcrypt = require('bcrypt');
@@ -49,6 +49,7 @@ router.get('/teamcarduserlist/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+
    /* bcrypt.hash(req.body.password, 10, function(err, hash){
         if(err){
             return res.status(500).json({
@@ -72,6 +73,7 @@ router.post('/', (req, res) => {
 
         
     
+
 });
 
 
@@ -82,12 +84,14 @@ router.put('/:id', (req, res) => {
 
     var teamCard = {
 
+
                         faculty : req.body.faculty,
                         sport : req.body.sport,
                         subEventId : req.body.subEventId,
                         userIndexList : req.body.userIndexList,
                         teamCaptainIndexNo : req.body.teamCaptainIndexNo
                     
+
     };
     TeamCard.findByIdAndUpdate(req.params.id, { $set: teamCard }, { new: true }, (err, doc) => {
         if (!err) { res.send(doc); }

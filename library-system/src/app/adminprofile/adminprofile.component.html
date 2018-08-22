@@ -33,6 +33,7 @@
   <div class="row">
 
     <div class="col-md-2">
+
               <!-- side bar -->
         <div class="sidenav ">
             <a class="image"><img  src="../../assets/img/Uoc1.png" ></a> 
@@ -65,11 +66,13 @@
               <app-team-card *ngIf="showTeamCard" [selectedTeamCaptain] = "this.tempTeamCaptain"></app-team-card>
               <app-createteamcaptain *ngIf="showCreateTeamCaptain"></app-createteamcaptain>
               <app-subevent *ngIf = "showSubEvent"></app-subevent>
+
               <app-viewteamcard *ngIf="showViewTeamCard"></app-viewteamcard>
               <app-sport *ngIf="showSport"></app-sport>
               <app-result *ngIf="showSubmitResults"></app-result>
               <app-viewresult *ngIf="showViewResult"></app-viewresult>
             </div>
+
             
             
             
@@ -83,3 +86,4 @@
     
   </div>
 </div>
+

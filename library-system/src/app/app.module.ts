@@ -40,6 +40,8 @@ import { ViewteamcardbyidComponent } from './events/team-card/viewteamcardbyid/v
 import { AcivementsComponent } from './events/acivements/acivements.component';
 import { ViewresultofuserComponent } from './events/acivements/viewresultofuser/viewresultofuser.component';
 
+import { HomeComponent } from './users/home/home.component';
+
 
 
 
@@ -72,7 +74,8 @@ import { ViewresultofuserComponent } from './events/acivements/viewresultofuser/
      ViewresultComponent,
      ViewteamcardbyidComponent,
      AcivementsComponent,
-     ViewresultofuserComponent 
+     ViewresultofuserComponent ,
+     HomeComponent
 
 
 

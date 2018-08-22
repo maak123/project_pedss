@@ -31,6 +31,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+
    /* bcrypt.hash(req.body.password, 10, function(err, hash){
         if(err){
             return res.status(500).json({
@@ -67,12 +68,14 @@ router.put('/:id', (req, res) => {
 
     var teamCaptain = {
 
+
                     userId : req.body.userId,
                     faculty : req.body.faculty,
                     indexNo : req.body.indexNo,
                     subEventId : req.body.subEventId,
                     teamCardId :  req.body.teamCardId,
                     isSubmitted : req.body.isSubmitted
+
 
     };
     TeamCaptain.findByIdAndUpdate(req.params.id, { $set: teamCaptain }, { new: true }, (err, doc) => {

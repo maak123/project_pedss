@@ -2,6 +2,7 @@
 const mongoose = require('mongoose');
 
 var TeamCard = mongoose.model('TeamCard', {
+
      
     faculty : { type: String },
 	sport : { type: String },
@@ -16,8 +17,10 @@ var TeamCard = mongoose.model('TeamCard', {
 
 
 
+});
 
-module.exports = { TeamCard };  
+
+module.exports = { TeamCard };
 
 
 

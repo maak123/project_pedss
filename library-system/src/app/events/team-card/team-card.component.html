@@ -84,7 +84,11 @@
          
           <div class="col s7 " style=" height: 520px; 
 overflow: scroll;" >
+
           <div *ngIf="false">
+
+          <div *ngIf="userService.users != null">
+
             <div  *ngFor="let user of userService.users">
 
               <ul>

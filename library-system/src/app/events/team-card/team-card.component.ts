@@ -53,7 +53,6 @@ export class TeamCardComponent implements OnInit {
   }
 
   refreshUserList(userIndex ?: string[]){
-    console.log(userIndex);
     if(userIndex.length != 0){
     userIndex.forEach(element => {
       this.userService.getUserByIndex(element).subscribe((res) => {
@@ -111,9 +110,11 @@ export class TeamCardComponent implements OnInit {
 
 
     }
+
     
     //this.refreshUserList(this.teamCardService.selectedTeamCard.userIndexList);
    // this.refreshUsers();
+
   }
 
   initTeamCard(teamCaptain : TeamCaptain){

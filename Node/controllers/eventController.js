@@ -24,28 +24,28 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-   /* bcrypt.hash(req.body.password, 10, function(err, hash){
-        if(err){
-            return res.status(500).json({
-                error:err
-                
-            });
-        }else{ console.log(hash);} });  */
+    /* bcrypt.hash(req.body.password, 10, function(err, hash){
+         if(err){
+             return res.status(500).json({
+                 error:err
+                 
+             });
+         }else{ console.log(hash);} });  */
 
-            var event = new Event({
-                    eventName : req.body.eventName,
-                    eventDesc : req.body.eventDesc,
-                    status : req.body.status,
-                    dateRange : req.body.dateRange
-                    
-                });
-                event.save((err, doc) => {
-                    if (!err) { res.send(doc); }
-                    else { console.log('Error in Event Save :' + JSON.stringify(err, undefined, 2)); }
-                });
+    var event = new Event({
+        eventName: req.body.eventName,
+        eventDesc: req.body.eventDesc,
+        status: req.body.status,
+        dateRange: req.body.dateRange
 
-        
-    
+    });
+    event.save((err, doc) => {
+        if (!err) { res.send(doc); }
+        else { console.log('Error in Event Save :' + JSON.stringify(err, undefined, 2)); }
+    });
+
+
+
 });
 
 
@@ -56,10 +56,10 @@ router.put('/:id', (req, res) => {
 
     var event = {
 
-         eventName : req.body.eventName,
-         eventDesc : req.body.eventDesc,
-         status : req.body.status,
-         dateRange : req.body.dateRange
+        eventName: req.body.eventName,
+        eventDesc: req.body.eventDesc,
+        status: req.body.status,
+        dateRange: req.body.dateRange
     };
     Event.findByIdAndUpdate(req.params.id, { $set: event }, { new: true }, (err, doc) => {
         if (!err) { res.send(doc); }
