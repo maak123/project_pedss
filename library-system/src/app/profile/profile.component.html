@@ -3,7 +3,7 @@
 
 
 
-  <div class="container-flued">
+  <div class="container-fluid">
     <div class="row nav">
       <!-- nav bar started -->
     
@@ -31,7 +31,7 @@
 
     </div>
     <div class="row">
-      <div class="class col-md-2">
+      <div class="class col-md-4">
          <!-- side bar -->
          <div class="sidenav ">
             <a class="image"><img  src="../../assets/img/Uoc1.png" ></a>
@@ -42,13 +42,14 @@
             <li style="color: floralwhite">regNo -{{userService.selectedUser.regNo}}</li>
             
           </ul>
-          <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showEditUser=true">Change Details</a>
-          
+          <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showEditUser=true;showAchivements=false;">Change Details</a>
+          <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showAchivements=true;showEditUser=false;">Achivements</a>
+        
           </div>
           <!-- side bar end -->
 
       </div>
-      <div class="class col-md-10">
+      <div class="class col-md-8">
    <!-- Page Container -->
    <div class="container content" style="max-width:1400px;margin-top:10px">    
    
@@ -60,7 +61,7 @@
            <div *ngIf="showTeamCard && this.tempTeamCaptain != null"  >
         <app-team-card [selectedTeamCaptain] = "tempTeamCaptain"></app-team-card>
            </div>
-        <div *ngIf="userService.selectedUser != null" >
+        <div *ngIf="userService.selectedUser != null && showAchivements" >
         <app-acivements [userIndex]="userService.selectedUser.indexNo"></app-acivements>
         </div>
         

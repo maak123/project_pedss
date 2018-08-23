@@ -8,6 +8,8 @@ import { SignUpComponent } from './users/sign-up/sign-up.component';
 import { AuthGuard } from './auth/auth.guard';
 import { ProfileComponent } from './profile/profile.component';
 import { AdminprofileComponent } from './adminprofile/adminprofile.component';
+import{AmalgametedClubMemberComponent} from './amalgameted-club-member/amalgameted-club-member.component';
+
 
 import { EventsComponent } from './events/events.component';
 import { EventComponent } from './events/event/event.component';
@@ -38,6 +40,10 @@ export const appRoutes: Routes = [
     { path: 'profile', component: ProfileComponent },
 
     { path: 'adminprofile', component: AdminprofileComponent },
+
+    {path:'amalgametedClubMember',component:AmalgametedClubMemberComponent},
+
+    
 
     {
         path: 'event', component: EventsComponent,

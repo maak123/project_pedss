@@ -1,12 +1,20 @@
 
+<div class="container-fluid"><!-- strat container -->
+  
+  <div class="row"><!--start hesder  -->
 
-<div style= "text-align:center">
-	<h2 class="jumbotron">Events Register</h2>
-</div>
-<div class ="row">
-	<div class="col-md-7">
-		
-		<form #eventForm="ngForm" (ngSubmit)="onSubmit(eventForm)">
+
+    <div class="header">
+        <h2 class=" ">Events Register</h2>
+      </div>
+
+  </div><!-- end header -->
+
+  <div class="row padinTop"><!--start content  -->
+
+    <div class="col-md-7"><!--start form  -->
+
+      <form #eventForm="ngForm" (ngSubmit)="onSubmit(eventForm)">
 
 			<input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="eventService.selectedEvent._id">
 
@@ -54,35 +62,51 @@
 
     </form>
 
-	</div>
-	<div class="col-md-5">
-	<table class="w3-table">
-                  <thead>
-                    <tr class="w3-blue">
-                      <th>Name</th>
-                      <th>Des</th>
-                      <th>Status</th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tr *ngFor="let event of eventService.events" >
 
-                    <td>{{event.eventName}}</td>
-                    <td>{{event.eventDesc}}</td>
-                    <td>{{event.status}}</td>
-                        <td>
-                        <a class="action-btn" (click)="onEdit(event)">
-                          edit
-                        </a>
-                        <a class="action-btn" (click)="onDelete(event._id)">
-                          delete
-                        </a>
-                      </td>
-                      
-                  </tr>
-          </table>
+    </div><!--end form  -->
 
-     </div>
-        
-	
-</div>
+    <div class="col-md-5" style=" height: 520px; overflow: scroll;"><!-- start table -->
+
+      <table  class="responsive-table highlight table-sm ">
+          <thead class="TbBackground">
+            <tr style="border: 2px solid black" >
+              <th>Name</th>
+              <th>Des</th>
+              <th>Status</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tr class="tableData" *ngFor="let event of eventService.events" >
+
+            <td style="border: 2px solid black">{{event.eventName}}</td>
+            <td style="border: 2px solid black">{{event.eventDesc}}</td>
+            <td style="border: 2px solid black">{{event.status}}</td>
+                <td style="border: 2px solid black" >
+                    <a (click)="onEdit(event)" class="font_button btn btn-info a-btn-slide-text">
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                        <span><strong>Edit</strong></span>            
+                    </a>
+                </td>
+                <td style="border: 2px solid black">
+
+                    <a (click)="onDelete(event._id)"  class="btn btn-danger a-btn-slide-text" >
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                         <span><strong>Delete</strong></span>            
+                     </a>
+               
+                
+              </td>
+              
+              
+          </tr>
+  </table>
+
+    </div><!--end table  -->
+
+
+  </div><!-- end content -->
+
+
+</div><!-- end container -->
+

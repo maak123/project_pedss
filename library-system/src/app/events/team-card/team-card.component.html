@@ -1,17 +1,20 @@
-<div style= "text-align:center; height: 140px;">
-  <h4 class="jumbotron w3-yellow">Submit Team Card</h4>
-</div>
+<div class="container-fluid"><!-- start container -->
+  <div class="row">
+      <div class="header">
+          <h2 class=" ">Submit Team Card</h2>
+        </div>
+  </div>
 
 
-<br>
-<br>
-<div class="container" >
+
+
+
   
-  <div class="col s12">
-    <div class="row">
+
+    <div class="row padinTop ">
          
 
-          <div class="col s5" >
+          <div class="col-md-5 " >
             <form class ="test" #form="ngForm" (ngSubmit)="onSubmit(form)">
 
 
@@ -79,8 +82,8 @@
               <div class="row">
                 <div class="form-group col s6">
                 <div class="input-field col s12">
-                  <button class="w3-button w3-blue w3-round w3-right " type="button" (click)="resetForm(form)">Reset</button>
-                  <button class="w3-button w3-blue w3-round" type="submit" [disabled]="!form.valid">Submit</button>
+                  <button class="btn btn-warning w3-right " type="button" (click)="resetForm(form)">Reset</button>
+                  <button class="btn btn-success w3-round" type="submit" [disabled]="!form.valid">Submit</button>
                 </div>
               </div>
               </div>
@@ -88,12 +91,11 @@
             </form>
           </div>
          
-          <div class="col s7 " style=" height: 520px; 
-overflow: scroll;" >
+          <div class="col s7 " style=" height: 520px; overflow: scroll;" >
 
-          <div *ngIf="false">
+          <div *ngIf="true">
 
-          <div *ngIf="userService.users != null">
+          <div *ngIf="userService.users != null && false">
 
             <div  *ngFor="let user of userService.users">
 
@@ -146,4 +148,6 @@ overflow: scroll;" >
           </div>
       </div> 
 </div>
+
 </div>
+

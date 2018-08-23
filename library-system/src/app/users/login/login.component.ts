@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   onSubmit(form: NgForm) {
     if (form.value.userName != null && form.value.userName === "admin") {
       this.router.navigate(['/adminprofile']);
-    }
+    }else{
 
     
     this.userService.login(form.value.userName, form.value.password).subscribe((res: any) => {
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
 
       }
 
-    });
+    });}
   }
 
   resetForm(form: NgForm) {

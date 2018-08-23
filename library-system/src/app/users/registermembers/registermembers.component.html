@@ -1,54 +1,69 @@
-
-<div style= "text-align: left; height: 100px;" class="container">
+<div class="container-fluid">
+  <div class="row">
+      <div class="header">
+          <h2 class=" ">Amalgameted Club Member/Faculty Sport Captain Register </h2>
+        </div>
+  </div>
+<!-- <div style= "text-align: left; height: 100px;" class="container">
   <h4 class="">Register Users As </h4>
   <h5 class=" w3-light-green">Amalgameted Club Member </h5>
   <h5 class=" w3-orange">Faculty Sport Captain </h5>
-</div>
+</div> -->
 
 
-<div class="row" >
+<div class="row padinTop" >
   
   
   
     <div class="col-md-7">
      <!--  height: 520px; 
 overflow: scroll; -->
-    
+    <div class="row padinTop">
+        <div style="text-align: center;  margin-left: 20px;margin-right: 20px" >
+            
+            <form class="test" #form="ngForm" >
+            <div class="row">
+            <div class="form-control col s6">
+            <input style="width: 500px;" type="text" class="form-control" placeholder="Search.." name="search">
+            </div>
+            <button type="submit" class="glyphicon glyphicon-search action-btn  w3-round" (click)="onSearch(form)">search</button>
+            </div>
+          </form>
+        </div>
+    </div>
+    <div class="row padinTop">
+
+        <table class="responsive-table highlight table-sm ">
+            <thead class="TbBackground">
+              <tr style="border: 2px solid black" class="padinTop" >
+                <th>Name</th>
+                <th>Index No</th>
+                <th>Faculty</th>
+                <th></th>
+               
+              </tr>
+            </thead>
+            <tr class="tableData" *ngFor="let user of userService.users">
+              <td style="border: 2px solid black">{{user.name}}</td>
+              <td style="border: 2px solid black">{{user.indexNo}}</td>
+              <td style="border: 2px solid black">{{user.faculty}}</td>
+              <td style="border: 2px solid black">
+                 
+                  <a  class="btn btn-success a-btn-slide-text" (click)="onSelect(user)">
+                      <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                       <span><strong>Select</strong></span>            
+                   </a>
+              </td>
+            </tr>
+          </table>
+
+
+    </div>
 
          
-          <div style="text-align: center;  margin-left: 20px;margin-right: 20px" >
-            
-              <form class="test" #form="ngForm" >
-              <div class="row">
-              <div class="form-control col s6">
-              <input type="text" class="form-control" placeholder="Search.." name="search">
-              </div>
-              <button type="submit" class="action-btn w3-blue w3-round" (click)="onSearch(form)">search</button>
-              </div>
-            </form>
-
-              <table class="responsive-table highlight">
-                  <thead>
-                    <tr>
-                      <th>Name</th>
-                      <th>Index No</th>
-                      <th>Faculty</th>
-                      <th></th>
-                     
-                    </tr>
-                  </thead>
-                  <tr *ngFor="let user of userService.users">
-                    <td>{{user.name}}</td>
-                    <td>{{user.indexNo}}</td>
-                    <td>{{user.faculty}}</td>
-                    <td>
-                        <a class="action-btn w3-red" (click)="onSelect(user)">
-                          Select
-                        </a>
-                    </td>
-                  </tr>
-                </table>
-          </div>
+         
+              
+          
           
          
       </div> 
@@ -65,13 +80,13 @@ overflow: scroll; -->
                       
                     </ul>
                   </div>
-                  <p style="text-align: center;" class="w3-red">Set as</p>
-                    <button class="w3-bar-item w3-button w3-blue" style="width:50%" (click)="showAmalClubMember=true;showFacSportCaptain=false;"> Amalgamated Club member</button>
-                    <button class="w3-bar-item w3-button w3-light-blue" style="width:50%;" (click)="showFacSportCaptain=true;showAmalClubMember=false;">Fac Sport Captain</button>
+                  <p style="text-align: center;" class="setas">Set as</p>
+                    <button class="w3-bar-item w3-button " style="width:50%;background-color: #ff80ff" (click)="showAmalClubMember=true;showFacSportCaptain=false;"> Amalgamated Club member</button>
+                    <button class="w3-bar-item w3-button " style="width:50%;background-color: #ffb3ff" (click)="showFacSportCaptain=true;showAmalClubMember=false;">Fac Sport Captain</button>
 
                     <br>
 
-                     <div class="w3-container" style="border-top: 20px">
+                     <div class="w3-container" style="border-top: 20px; padding-top: 20px">
                      <app-registeramalclubmember *ngIf="showAmalClubMember"></app-registeramalclubmember>
                      <app-registerfacsportcaptain *ngIf="showFacSportCaptain"></app-registerfacsportcaptain>
                    </div>
@@ -82,4 +97,5 @@ overflow: scroll; -->
            
       </div>
 
+</div>
 </div>
