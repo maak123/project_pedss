@@ -13,7 +13,7 @@ var TeamCard = mongoose.model('TeamCard', {
 	 
      
 
-
+});
 
 
 module.exports = { TeamCard };

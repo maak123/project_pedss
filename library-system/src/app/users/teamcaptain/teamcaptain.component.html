@@ -78,7 +78,7 @@
 
     	<table class="responsive-table highlight table-sm" style="width: 400px">
                   <thead class="TbBackground">
-                    <tr>
+                    <tr style="border: 2px solid black">
                  
                       <th>indexNo</th> 
                       <th>faculty</th>
@@ -88,10 +88,10 @@
                   </thead>
                   <tr class="tableData" *ngFor="let teamCaptain of teamCaptainService.teamCaptains">
                     <ng-container *ngIf="teamCaptain.subEventId==subEventId">
-                    <td>{{teamCaptain.indexNo}}</td>
-                    <td>{{teamCaptain.faculty}}</td>
+                    <td style="border: 2px solid black">{{teamCaptain.indexNo}}</td>
+                    <td style="border: 2px solid black">{{teamCaptain.faculty}}</td>
                     
-                        <td>
+                        <td style="border: 2px solid black">
                         
                         <a  class="btn btn-danger a-btn-slide-text" (click)="onDelete(teamCaptain._id,form)">
                             <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
