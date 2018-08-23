@@ -42,6 +42,16 @@ export class TeamcaptainComponent implements OnInit {
 
     if (form.value._id == null) {
 
+      var text = "";
+      var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+       for (var i = 0; i < 6; i++){
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+       }
+
+       form.value.password= text;
+         
+
       this.userService.postUser(form.value).subscribe((res) => {
 
 
@@ -58,16 +68,7 @@ export class TeamcaptainComponent implements OnInit {
       }
 
       
-        this.messageService.selectedMessage={
-          _id: null,
-          message:"fuck you",
-          telephoneNo:form.value.telephone
-        }
-
-        this.messageService.postMessage(this.messageService.selectedMessage).subscribe((res) => {
-          this.tostr.success('message send Succcessfully', 'Team Captain Register');
-          
-        });
+       // this.sendMessage(form.value.telephone);
 
         this.teamCaptainService.postTeamCaptain(this.teamCaptainService.selectedTeamCaptain).subscribe((res) => {
 
@@ -101,6 +102,19 @@ export class TeamcaptainComponent implements OnInit {
     }
 
 
+  }
+  
+  sendMessage( telephone : string){
+    this.messageService.selectedMessage={
+      _id: null,
+      message:"You as selected as team captain",
+      telephoneNo:telephone
+    }
+
+    this.messageService.postMessage(this.messageService.selectedMessage).subscribe((res) => {
+      this.tostr.success('message send Succcessfully', 'Team Captain Register');
+      
+    });
   }
 
   resetForm(form?: NgForm) {

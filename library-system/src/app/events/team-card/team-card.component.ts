@@ -25,6 +25,7 @@ export class TeamCardComponent implements OnInit {
   userList : User[];
   selectedTeamCard : TeamCard;
   faculties : string[]=["UCSC","Science","Arts","Management"];
+  tempUserList : User[];
   
 
 
@@ -52,10 +53,12 @@ export class TeamCardComponent implements OnInit {
       });
   }
 
-  refreshUserList(userIndex ?: string[]){
+  refreshUserList(userIndex : string[]){
     if(userIndex.length != 0){
     userIndex.forEach(element => {
+      
       this.userService.getUserByIndex(element).subscribe((res) => {
+        console.log(res);
         this.userService.users.push(res as User);
       });
     });}
@@ -94,8 +97,12 @@ export class TeamCardComponent implements OnInit {
   onSubmit(form: NgForm) {
     if (form.value._id == null) {
       form.value.faculty = this.selectedTeamCaptain.faculty;
+
+      //this.tempUserList.push(form.value)
+      
       this.teamCardService.selectedTeamCard.userIndexList.push(form.value.indexNo as string);
       this.userService.postUser(form.value).subscribe((res) => {
+        
         
         this.resetForm(form);
         
@@ -113,7 +120,7 @@ export class TeamCardComponent implements OnInit {
 
     
     //this.refreshUserList(this.teamCardService.selectedTeamCard.userIndexList);
-   // this.refreshUsers();
+    this.refreshUsers();
 
   }
 
@@ -127,6 +134,7 @@ export class TeamCardComponent implements OnInit {
           userIndexList : [],
           teamCaptainIndex : teamCaptain.indexNo
         }
+        this.teamCardService.selectedTeamCard.userIndexList.push(this.selectedTeamCaptain.indexNo);
         this.refreshUserList(this.teamCardService.selectedTeamCard.userIndexList);
   }
 
