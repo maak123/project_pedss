@@ -41,7 +41,11 @@ import { AcivementsComponent } from './events/acivements/acivements.component';
 import { ViewresultofuserComponent } from './events/acivements/viewresultofuser/viewresultofuser.component';
 
 import { HomeComponent } from './users/home/home.component';
+
 import { ViewachivementsofuserComponent } from './adminprofile/viewachivementsofuser/viewachivementsofuser.component';
+
+import { AmalgametedClubMemberComponent } from './amalgameted-club-member/amalgameted-club-member.component';
+
 
 
 
@@ -77,7 +81,9 @@ import { ViewachivementsofuserComponent } from './adminprofile/viewachivementsof
      AcivementsComponent,
      ViewresultofuserComponent ,
      HomeComponent,
-     ViewachivementsofuserComponent
+     ViewachivementsofuserComponent,
+     AmalgametedClubMemberComponent
+
 
 
 

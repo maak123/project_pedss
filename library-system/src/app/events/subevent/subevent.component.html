@@ -1,22 +1,31 @@
 
-	<div class="row" style="padding-top: 25px">
+	<div class="container-fluid"><!-- start container -->
+  
+		<div class="row"><!-- start header -->
+	
+			<div class="header">
+				<h2 class=" ">Add SubEvent</h2>
+			</div>
+	
+		</div><!-- end header-->
+	<div class="row" style="padding-top: 20px">
 	<div class=" col-md-7" >
 
-		<table class="w3-table" *ngIf="showMe">
-                  <thead>
-                    <tr class="w3-green">
+		<table  class="responsive-table highlight table-sm" style="width: 500px" *ngIf="showMe">
+                  <thead class="TbBackground">
+                    <tr style="border: 2px solid black" >
                       <th>Name</th>
                       <th>Des</th>
                       <th></th>
                     </tr>
                   </thead>
-                  <tr *ngFor="let event of eventService.events" >
+                  <tr class="tableData" *ngFor="let event of eventService.events" >
                   	<ng-container *ngIf="event.status=='activated'">
-                    <td>{{event.eventName}}</td>
-                    <td>{{event.eventDesc}}</td>
+                    <td style="border: 2px solid black">{{event.eventName}}</td>
+                    <td style="border: 2px solid black">{{event.eventDesc}}</td>
                     
-                        <td>
-                        	<button class=" action-btn w3-button w3-red" (click)="addSubEvent(event)">Add Sub Event</button>
+                        <td style="border: 2px solid black">
+                        	<button class="btn ntn-lg btn-primary glyphicon glyphicon-plus"  (click)="addSubEvent(event)">Add Sub Event</button>
                         
                        
                         </td>
@@ -37,29 +46,37 @@
 			<input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="subEventService.selectedSubEvent._id">
 			<input type="hidden" name="eventId" #eventId="ngModel" [(ngModel)]="subEventService.selectedSubEvent.eventId">
 
-	        <div class="form-group">
+	        <div class="form-group" [class.has-error]="nam.invalid && nam.touched">
 	        	<label>Sub Event Name</label>
-		        <input class="form-control" name="subEventName" #name="ngModel" [(ngModel)]="subEventService.selectedSubEvent.subEventName" placeholder="Name of the sub event" required>
+						<input class="form-control" name="subEventName" #nam="ngModel" [(ngModel)]="subEventService.selectedSubEvent.subEventName" placeholder="Name of the sub event" required>
+						<span class="help-block" *ngIf="nam.invalid && nam.touched"> Subevent is Required  </span>
+
 	        </div>
 
-	        <div class="form-group">
+	        <div class="form-group" [class.has-error]="sport.invalid && sport.touched">
 	        	<label>Sport</label>
 	        	<div class="input-group">
 	        	<select class = "form-control " name="sport" #sport="ngModel"[(ngModel)]="subEventService.selectedSubEvent.sport" required>
 	        	  <option *ngFor = " let sport of sports" value={{sport}}>{{sport}}</option>
-	        	</select>
+						</select>
+						<span class="help-block" *ngIf="sport.invalid && sport.touched"> Sport is Required  </span>
+
 	        	</div>
 	        </div>
 
-	        <div class="form-group">
+	        <div class="form-group" [class.has-error]="dateRange.invalid && dateRange.touched">
 	        	<label>Date Range</label>
-		        <my-date-range-picker name="dateRange" [options]="myDateRangePickerOptions"
-                    [(ngModel)]="subEventService.selectedSubEvent.dateRange" required></my-date-range-picker>
+		        <my-date-range-picker name="dateRange" #dateRange="ngModel" [options]="myDateRangePickerOptions"
+										[(ngModel)]="subEventService.selectedSubEvent.dateRange" required></my-date-range-picker>
+										<span class="help-block" *ngIf="dateRange.invalid && dateRange.touched"> Please select date range  </span>
+
+										
 	        </div>
           
 	
 	       <div class="form-group">
-	       	<button type="submit" class="w3-button w3-blue w3-round" [disabled]="!subEventForm">Submit</button>
+
+	       	<button type="submit" class="btn btn-success" [disabled]="!subEventForm.valid">Submit</button>
 	       </div>
 	
 
@@ -73,27 +90,33 @@
 		-->
 
 		<div class="col-md-5">
-		 <table class="w3-table">
-                  <thead>
-                    <tr class="w3-blue">
+		 <table class="responsive-table highlight table-sm " style="width: 400px">
+                  <thead class="TbBackground">
+                    <tr style="border: 2px solid black" >
                       <th>Name</th>
                       <th>Sport</th>
-                     
+                     <th></th>
                       <th></th>
                     </tr>
                   </thead>
-                  <tr *ngFor="let subEvent of subEventService.subEvents">
+                  <tr class="tableData" *ngFor="let subEvent of subEventService.subEvents">
                     <ng-container *ngIf="subEvent.eventId==selectedEventInSubEvent._id">
-                    <td>{{subEvent.subEventName}}</td>
-                    <td>{{subEvent.sport}}</td>
+                    <td style="border: 2px solid black">{{subEvent.subEventName}}</td>
+                    <td style="border: 2px solid black">{{subEvent.sport}}</td>
                     
-                        <td>
-                        <a class="action-btn" (click)="onEdit(subEvent)">
-                          edit
-                        </a>
-                        <a class="action-btn" (click)="onDelete(subEvent._id)">
-                          delete
-                        </a>
+                        <td style="border: 2px solid black">
+														<a (click)="onEdit(subEvent)" class="font_button btn btn-info a-btn-slide-text">
+																<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+																<span><strong>Edit</strong></span>            
+														</a>
+                        
+												</td>
+												<td style="border: 2px solid black">
+														<a (click)="onDelete(subEvent._id)" class="font_button btn btn-danger a-btn-slide-text">
+																<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+																<span><strong>Delete</strong></span>            
+														</a>
+                        
                          
                       </td>
                     </ng-container>
@@ -105,3 +128,4 @@
 	</div>
 </div>
 	
+</div><!--end container-->

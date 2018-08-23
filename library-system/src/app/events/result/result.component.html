@@ -141,7 +141,7 @@
     </div>
 
 
-    <div class="form-group">
+    <div class="form-group" [class.has-error]="type.invalid && type.touched">
       <label>Match Type</label>
       <div class="input-group">
         <select class="form-control " name="type" #type="ngModel" [(ngModel)]="resultService.selectedResult.type" required>
@@ -150,13 +150,15 @@
           <option value="semifinal">semifinal</option>
           <option value="final">final</option>
         </select>
+        <span class="help-block" *ngIf="type.invalid && type.touched">Please select the match type</span>
+
       </div>
     </div>
 
 
 
     <div class="form-group">
-      <button type="submit" class="w3-button w3-blue w3-round" [disabled]="!form">Submit</button>
+      <button type="submit" class="w3-button w3-blue w3-round" [disabled]="!form.valid">Submit</button>
     </div>
 
 

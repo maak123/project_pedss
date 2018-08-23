@@ -6,7 +6,12 @@
         <p id="profile-name" class="profile-name-card"></p>
         <form class="form-signin" #form="ngForm" (ngSubmit)="onSubmit(form)">
             <span id="reauth-email" class="reauth-email"></span>
+            <div class="form-group" [class.has-error]="userName.invalid && userName.touched">
+
             <input type="text" #userName ngModel class="form-control" placeholder="Username" name="userName" required autofocus>
+            <span class="help-block" *ngIf="password.invalid && password.touched"> Please enter user name</span>
+
+            </div>
             <input type="password" #password ngModel class="form-control" placeholder="Password" name="password" required>
             <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign In</button>
         </form>
