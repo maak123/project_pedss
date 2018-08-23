@@ -17,15 +17,27 @@ overflow: scroll; -->
 
          
           <div style="text-align: center;  margin-left: 20px;margin-right: 20px" >
+
+              <div class="row">
+
+              <input #searchval class = "form-control col-md-7"
+              (keyup.enter)="onSubmit(searchval.value)"
+              (blur)="onSubmit(searchval.value); searchval.value='' ">
+        
+            <button class="action-btn w3-blue w3-round col-md-2" (click)="onSubmit(searchval.value)">Search</button>
+            <button class="action-btn w3-blue w3-round col-md-3" (click)="refreshUserList()">Refresh</button>
+              </div>
             
-              <form class="test" #form="ngForm" >
+              <!-- <form class="test" #form="ngForm" (ngSubmit)="onSubmit(form)" *ngIf="false">
               <div class="row">
               <div class="form-control col s6">
-              <input type="text" class="form-control" placeholder="Search.." name="search">
+                  <input class = "form-control" type="text" name="search" >
+
               </div>
-              <button type="submit" class="action-btn w3-blue w3-round" (click)="onSearch(form)">search</button>
+              <button type="submit" class="action-btn w3-blue w3-round"  [disabled]="!form.valid">search</button>
+              <button type="button" class="action-btn w3-blue w3-round"  (click)="onSubmit(form)">search1</button>
               </div>
-            </form>
+            </form> -->
 
               <table class="responsive-table highlight">
                   <thead>
