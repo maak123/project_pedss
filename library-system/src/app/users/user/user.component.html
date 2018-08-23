@@ -27,7 +27,7 @@
               </label>
             
               <div class="input-field col s12">
-                <input class = "form-control" type="text" name="name" #name="ngModel" [(ngModel)]="userService.selectedUser.name" placeholder="Full Name" required>
+                <input class = "form-control" type="text" name="nam" #nam="ngModel" [(ngModel)]="userService.selectedUser.name" placeholder="Full Name" required>
                 <span class="help-block" *ngIf="nam.invalid && nam.touched">Name is required</span>
               </div>
             </div>
@@ -40,7 +40,7 @@
               </label>
             
               <div class="input-field col s12">
-                <input class = "form-control" type="text" name="indexNo" #name="ngModel" [(ngModel)]="userService.selectedUser.indexNo" placeholder="Index No" required>
+                <input class = "form-control" type="text" name="index" #index="ngModel" [(ngModel)]="userService.selectedUser.indexNo" placeholder="Index No" required>
                 <span class="help-block" *ngIf="index.errors?.required  && index.touched"> Index number is Required  </span>
 
               </div>
@@ -54,7 +54,7 @@
               </label>
             
               <div class="input-field col s12"[class.has-error]="reg.invalid && reg.touched">
-               <input class = "form-control" type="text" name="regNo" #name="ngModel" [(ngModel)]="userService.selectedUser.regNo" placeholder="Registration No" >
+               <input class = "form-control" type="text" name="reg" #reg="ngModel" [(ngModel)]="userService.selectedUser.regNo" placeholder="Registration No" >
                 <span class="help-block" *ngIf="reg.invalid && reg.touched"> Registaton number is Required  </span>
 
               </div>
@@ -70,7 +70,7 @@
                
                 <div class="input-group" [class.has-error]="fac.invalid && fac.touched">
                   
-                  <select class = "form-control " name="faculty" #name="ngModel"[(ngModel)]="userService.selectedUser.faculty" required>
+                  <select class = "form-control " name="fac" #fac="ngModel"[(ngModel)]="userService.selectedUser.faculty" required>
                     <option *ngFor = " let faculty of faculties" value={{faculty}}>{{faculty}}</option>
                   </select>
                   <span class="help-block" *ngIf="fac.invalid && fac.touched">Faculty is required</span>
@@ -87,7 +87,7 @@
               </label>
             
               <div class="input-field col s12">
-                <input class = "form-control" type="text" name="nic" #name="ngModel" [(ngModel)]="userService.selectedUser.nic" placeholder="NIC" required maxlength="10" minlength="10">
+                <input class = "form-control" type="text" name="nic" #nic="ngModel" [(ngModel)]="userService.selectedUser.nic" placeholder="NIC" required maxlength="10" minlength="10">
                 <span class="help-block" *ngIf="nic.errors?.required && nic.touched"> NIC number is required  </span>
                   <span class="help-block" *ngIf="nic.errors?.minlength && nic.touched"> NIC should be 10 characters  </span>
               </div>
