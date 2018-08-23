@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
-import { SubEvent } from './subEvent';
+import { SubEvent } from './subevent';
 
 
 @Injectable()
