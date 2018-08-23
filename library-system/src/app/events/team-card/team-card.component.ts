@@ -101,6 +101,7 @@ export class TeamCardComponent implements OnInit {
       //this.tempUserList.push(form.value)
       
       this.teamCardService.selectedTeamCard.userIndexList.push(form.value.indexNo as string);
+      form.value.password = form.value.telephone;
       this.userService.postUser(form.value).subscribe((res) => {
         
         

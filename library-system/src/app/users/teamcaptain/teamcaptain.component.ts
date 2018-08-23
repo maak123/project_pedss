@@ -66,7 +66,18 @@ export class TeamcaptainComponent implements OnInit {
          teamCardId :  "",
          isSubmitted : false
       }
+       
 
+      this.messageService.selectedMessage={
+        _id: null,
+        message:"HELLO! Captain, You have new event. LogIn and submit your team card. www.uocsports.lk username is your indexno,password is " +text,
+        telephoneNo :"+94717066924"//telephoneNo:form.value.telephone
+      }
+  
+      this.messageService.postMessage(this.messageService.selectedMessage).subscribe((res) => {
+        this.tostr.success('message send Succcessfully', 'Team Captain Register');
+        
+      });
       
        // this.sendMessage(form.value.telephone);
 
@@ -107,7 +118,7 @@ export class TeamcaptainComponent implements OnInit {
   sendMessage( telephone : string){
     this.messageService.selectedMessage={
       _id: null,
-      message:"You as selected as team captain",
+      message:"HELLO! Captain, You have new event. LogIn and submit your team card. www.uocsports.lk",
       telephoneNo:telephone
     }
 

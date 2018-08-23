@@ -112,12 +112,12 @@ overflow: scroll;" >
                     <td>{{user.name}}</td>
                     <td>{{user.indexNo}}</td>
                     <td></td>
-                    <td>
+                    <td *ngIf="false">
                         <a class="action-btn w3-blue" (click)="onEdit(user)">
                           edit
                         </a>
                     </td>
-                    <td>
+                    <td *ngIf="false">
                         <a class="action-btn w3-red" (click)="onDelete(user._id,form)">
                           delete
                         </a>

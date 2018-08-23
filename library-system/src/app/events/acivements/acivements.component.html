@@ -1,5 +1,12 @@
 
 <div class="w3-container">
+    <div *ngIf ="teamCardService.teamCards == null">
+       <div class="w3-card-4 w3-orange">
+         <h2>
+             No Achivements To Display
+         </h2>
+       </div>
+    </div>
     <div class ="w3-card-4 w3-round w3-white" *ngFor="let teamCard of teamCardService.teamCards">
         <div class="w3-container">
         <h5>{{teamCard.faculty}}</h5>
