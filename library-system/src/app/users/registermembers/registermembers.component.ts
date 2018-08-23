@@ -14,6 +14,7 @@ export class RegistermembersComponent implements OnInit {
   
   private showFacSportCaptain: boolean=false;
   private showAmalClubMember: boolean=false;
+  
   constructor(private userService: UserService) { }
 
   ngOnInit() {
@@ -27,9 +28,9 @@ export class RegistermembersComponent implements OnInit {
     });
   }
 
-  onSearch(form : NgForm){
-    console.log(form.value.search);
-    this.userService.searchUser("lakshan").subscribe((res) => {
+  onSubmit(word : string){
+    console.log(word);
+    this.userService.searchUser(word).subscribe((res) => {
       this.userService.users = res as User[];
     });
   }
@@ -37,5 +38,7 @@ export class RegistermembersComponent implements OnInit {
   onSelect(user : User){
     this.userService.selectedUser = user;
   }
+
+  
 
 }

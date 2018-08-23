@@ -42,8 +42,9 @@
             <li style="color: floralwhite">regNo -{{userService.selectedUser.regNo}}</li>
             
           </ul>
-          <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showEditUser=true">Change Details</a>
-          
+          <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showEditUser=true;showAchivements=false;">Change Details</a>
+          <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showAchivements=true;showEditUser=false;">Achivements</a>
+        
           </div>
           <!-- side bar end -->
 
@@ -60,7 +61,7 @@
            <div *ngIf="showTeamCard && this.tempTeamCaptain != null"  >
         <app-team-card [selectedTeamCaptain] = "tempTeamCaptain"></app-team-card>
            </div>
-        <div *ngIf="userService.selectedUser != null" >
+        <div *ngIf="userService.selectedUser != null && showAchivements" >
         <app-acivements [userIndex]="userService.selectedUser.indexNo"></app-acivements>
         </div>
         

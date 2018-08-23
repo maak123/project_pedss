@@ -22,6 +22,7 @@ import { TeamCaptainService } from '../users/teamcaptain/shared/teamcaptain.serv
 export class ProfileComponent implements OnInit {
 
   showTeamCard : boolean = false;  
+  showAchivements : boolean =false;
   tempTeamCaptain : TeamCaptain;
   selectedUserindex : string;
 
