@@ -64,6 +64,11 @@
         <div *ngIf="userService.selectedUser != null && showAchivements" >
         <app-acivements [userIndex]="userService.selectedUser.indexNo"></app-acivements>
         </div>
+        <div *ngIf="showHome">
+            <div class="item active">
+                <img src="../../assets/img/bgslides/1.jpg" alt="1" style="width:100%; height:640px;">
+              </div>
+        </div>
         
       </div>
       
