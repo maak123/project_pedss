@@ -18,6 +18,7 @@ export class AmalgametedClubMemberComponent implements OnInit {
   private showSport : boolean = false;
   private showViewResult : boolean= false;
   private showSubmitResults : boolean= false;
+  private showHome:boolean=true;
 
   //tempary object
   private tempTeamCaptain : TeamCaptain = {

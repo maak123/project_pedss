@@ -37,11 +37,11 @@
         <div class="sidenav ">
             <a class="image"><img  src="../../assets/img/Uoc1.png" ></a> 
           
-          <a  class="w3-bar-item w3-button" (click)="showUsers=false;showEvent=false;showRegisterMembers=false;showTeamCard=false;showCreateTeamCaptain=falses;showSubEvent=false;showViewTeamCard=false;showSport=false;showSubmitResults=false;showViewResult=false;">Home</a>
-          <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=false;showEvent=false;showRegisterMembers=false;showTeamCard=false;showCreateTeamCaptain=true;showSubEvent=false;showViewTeamCard=false;showSport=false;showSubmitResults=false;showViewResult=false;">Register Team Captains</a>
-          <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=false;showEvent=false;showRegisterMembers=false;showTeamCard=false;showCreateTeamCaptain=falses;showSubEvent=false;showViewTeamCard=true;showSport=false;showSubmitResults=false;showViewResult=false;">View Team card</a>
-          <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=false;showEvent=false;showRegisterMembers=false;showTeamCard=false;showCreateTeamCaptain=falses;showSubEvent=false;showViewTeamCard=false;showSport=false;showSubmitResults=true;showViewResult=false;">Submit Result</a>
-          <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=false;showEvent=false;showRegisterMembers=false;showTeamCard=false;showCreateTeamCaptain=falses;showSubEvent=false;showViewTeamCard=false;showSport=false;showSubmitResults=false;showViewResult=true;">View Result</a>
+          <a [ngClass]="{ 'w3-white': showHome }" class="w3-bar-item w3-button" (click)="showHome=true;showUsers=false;showEvent=false;showRegisterMembers=false;showTeamCard=false;showCreateTeamCaptain=falses;showSubEvent=false;showViewTeamCard=false;showSport=false;showSubmitResults=false;showViewResult=false;">Home</a>
+          <a [ngClass]="{ 'w3-white': showCreateTeamCaptain }" class="w3-bar-item w3-button w3-hover-light-grey" (click)="showHome=false;showUsers=false;showEvent=false;showRegisterMembers=false;showTeamCard=false;showCreateTeamCaptain=true;showSubEvent=false;showViewTeamCard=false;showSport=false;showSubmitResults=false;showViewResult=false;">Register Team Captains</a>
+          <a [ngClass]="{ 'w3-white': showViewTeamCard }" class="w3-bar-item w3-button w3-hover-light-grey" (click)="showHome=false;showUsers=false;showEvent=false;showRegisterMembers=false;showTeamCard=false;showCreateTeamCaptain=falses;showSubEvent=false;showViewTeamCard=true;showSport=false;showSubmitResults=false;showViewResult=false;">View Team card</a>
+          <a [ngClass]="{ 'w3-white': showSubmitResults }" class="w3-bar-item w3-button w3-hover-light-grey" (click)="showHome=false;showUsers=false;showEvent=false;showRegisterMembers=false;showTeamCard=false;showCreateTeamCaptain=falses;showSubEvent=false;showViewTeamCard=false;showSport=false;showSubmitResults=true;showViewResult=false;">Submit Result</a>
+          <a [ngClass]="{ 'w3-white': showViewResult }" class="w3-bar-item w3-button w3-hover-light-grey" (click)="showHome=false;showUsers=false;showEvent=false;showRegisterMembers=false;showTeamCard=false;showCreateTeamCaptain=falses;showSubEvent=false;showViewTeamCard=false;showSport=false;showSubmitResults=false;showViewResult=true;">View Result</a>
 
           <!-- one na -->
           <!-- <a class="w3-bar-item w3-button w3-hover-light-grey" (click)="showUsers=true;showEvent=false;showRegisterMembers=false;showTeamCard=false;showCreateTeamCaptain=false;showSubEvent=false;showViewTeamCard=false;showSport=false;showSubmitResults=false;showViewResult=false;">Users</a>
@@ -73,6 +73,11 @@
               <app-sport *ngIf="showSport"></app-sport>
               <app-result *ngIf="showSubmitResults"></app-result>
               <app-viewresult *ngIf="showViewResult"></app-viewresult>
+              <div *ngIf="showHome">
+                  <div class="item active">
+                      <img src="../../assets/img/bgslides/1.jpg" alt="1" style="width:100%; height:640px;">
+                    </div>
+              </div>
             </div>
             
             
