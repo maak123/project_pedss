@@ -1,4 +1,18 @@
-<div *ngIf="true">
+<div *ngIf="resultService.results == null">
+
+  <div class="w3-card-2">
+    <h2 class="w3-green">
+      user have unparticipated registered matches on above subevent
+    </h2>
+
+  </div>
+
+
+</div>
+
+
+
+<div *ngIf="resultService.results != null">
     <div *ngFor="let result of resultService.results">
       <div class="container">
         <h1>{{result.matchType}} match</h1>
