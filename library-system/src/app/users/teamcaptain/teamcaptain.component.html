@@ -1,4 +1,4 @@
-<h4 class class="w3-grey"> Add new team captain to subevent</h4>
+<h4 class style="background-color: #660066;color: whitesmoke"> Add new team captain to subevent</h4>
 
 <div class="row">        
 
@@ -66,8 +66,8 @@
               <div class="row">
                 <div class="form-group col s6">
                 <div class="input-field col s12">
-                  <button class="w3-button w3-blue w3-round w3-right " type="button" (click)="resetForm(form)">Reset</button>
-                  <button class="w3-button w3-blue w3-round" type="submit" [disabled]="!form.valid">Submit</button>
+                  <button class="btn btn-warning w3-round w3-right " type="button" (click)="resetForm(form)">Reset</button>
+                  <button class="btn btn-success w3-round" type="submit" [disabled]="!form.valid">Submit</button>
                 </div>
               </div>
               </div>
@@ -76,9 +76,9 @@
     </div>
     <div class="col-md-5">
 
-    	<table class="w3-table">
-                  <thead>
-                    <tr class="w3-blue">
+    	<table class="responsive-table highlight table-sm" style="width: 400px">
+                  <thead class="TbBackground">
+                    <tr>
                  
                       <th>indexNo</th> 
                       <th>faculty</th>
@@ -86,15 +86,17 @@
                       <th></th>
                     </tr>
                   </thead>
-                  <tr *ngFor="let teamCaptain of teamCaptainService.teamCaptains">
+                  <tr class="tableData" *ngFor="let teamCaptain of teamCaptainService.teamCaptains">
                     <ng-container *ngIf="teamCaptain.subEventId==subEventId">
                     <td>{{teamCaptain.indexNo}}</td>
                     <td>{{teamCaptain.faculty}}</td>
                     
                         <td>
-                        <a class="action-btn w3-red" (click)="onDelete(teamCaptain._id,form)" >
-                          delete
-                        </a>
+                        
+                        <a  class="btn btn-danger a-btn-slide-text" (click)="onDelete(teamCaptain._id,form)">
+                            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                             <span><strong>Delete</strong></span>            
+                         </a>
                        
                          
                        </td>

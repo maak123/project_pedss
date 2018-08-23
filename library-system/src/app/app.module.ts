@@ -41,6 +41,7 @@ import { AcivementsComponent } from './events/acivements/acivements.component';
 import { ViewresultofuserComponent } from './events/acivements/viewresultofuser/viewresultofuser.component';
 
 import { HomeComponent } from './users/home/home.component';
+import { AmalgametedClubMemberComponent } from './amalgameted-club-member/amalgameted-club-member.component';
 
 
 
@@ -75,7 +76,8 @@ import { HomeComponent } from './users/home/home.component';
      ViewteamcardbyidComponent,
      AcivementsComponent,
      ViewresultofuserComponent ,
-     HomeComponent
+     HomeComponent,
+     AmalgametedClubMemberComponent
 
 
 

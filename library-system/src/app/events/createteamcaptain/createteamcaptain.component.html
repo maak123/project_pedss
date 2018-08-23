@@ -1,23 +1,32 @@
 
+<div class="container-fluid"><!-- start container -->
+  
+  <div class="row"><!-- start header -->
+
+    <div class="header">
+      <h2 class=" ">Register Team Captain</h2>
+    </div>
+
+  </div><!-- end header-->
 <div class="row" style="padding-top: 25px">
 <div class="col-md-6">
   
 
-		 <table class="w3-table">
-                  <thead>
-                    <tr class="w3-green">
+		 <table class="responsive-table highlight table-sm" style="width: 500px">
+                  <thead class="TbBackground">
+                    <tr style="border: 2px solid black" >
                       <th>Name</th>
                       <th>Des</th>
                       <th></th>
                     </tr>
                   </thead>
-                  <tr *ngFor="let event of eventService.events" >
+                  <tr class="tableData" *ngFor="let event of eventService.events" >
                   	<ng-container *ngIf="event.status=='activated'">
-                    <td>{{event.eventName}}</td>
-                    <td>{{event.eventDesc}}</td>
+                    <td style="border: 2px solid black">{{event.eventName}}</td>
+                    <td style="border: 2px solid black">{{event.eventDesc}}</td>
                     
-                        <td>
-                        	<button class=" action-btn w3-button w3-red" (click)="viewSubEvents(event)">View Sub Events</button>
+                        <td style="border: 2px solid black">
+                        	<button class=" btn btn-md btn-primary glyphicon glyphicon-eye-open" (click)="viewSubEvents(event)">View Sub Events</button>
                         
                        
                       </td>
@@ -29,25 +38,26 @@
 	</div>
 	<div class="col-md-6" >
 		
-    <table class="w3-table" *ngIf="showSubEventList">
-                  <thead>
-                    <tr class="w3-blue">
+    <table class="responsive-table highlight table-sm" style="width: 500px" *ngIf="showSubEventList">
+                  <thead class="TbBackground">
+                    <tr style="border: 2px solid black">
                       <th>Name</th>
                       <th>Sport</th> 
                      
                       <th></th>
                     </tr>
                   </thead>
-                  <tr *ngFor="let subEvent of subEventService.subEvents">
+                  <tr class="tableData" *ngFor="let subEvent of subEventService.subEvents">
                     <ng-container *ngIf="subEvent.eventId==selectedEventId">
-                    <td>{{subEvent.subEventName}}</td>
-                    <td>{{subEvent.sport}}</td>
+                    <td style="border: 2px solid black">{{subEvent.subEventName}}</td>
+                    <td style="border: 2px solid black">{{subEvent.sport}}</td>
                     
-                        <td>
-                        <a class="action-btn" (click)="addTeamCard(subEvent)">
-                          Add Team Captain
-                        </a>
+                        <td style="border: 2px solid black">
                        
+                        <a (click)="addTeamCard(subEvent)" class="font_button btn btn-info a-btn-slide-text">
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                            <span><strong> Add Team Captain</strong></span>            
+                        </a>
                          
                       </td>
                     </ng-container>
@@ -68,4 +78,5 @@
           
 </div>
 </div>
+</div><!--ens container-->
 
