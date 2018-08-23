@@ -10,20 +10,25 @@
 
 			<input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="sportService.selectedSport._id">
 
-	        <div class="form-group">
+	        <div class="form-group"  [class.has-error]="nam.invalid && nam.touched">
 	        	<label>name</label>
-		        <input class="form-control" name="name" #name="ngModel" [(ngModel)]="sportService.selectedSport.name" placeholder="Name of the sport" required>
+            
+            <input class="form-control" name="name" #nam="ngModel" required [(ngModel)]="sportService.selectedSport.name" placeholder="Name of the sport" required>
+            <span class="help-block" *ngIf="nam.invalid && nam.touched">Name is required</span>
+
           </div>
           
-          <div class="form-group">
+          <div class="form-group" [class.has-error]="playersNo.invalid && playersNo.touched">
 	        	<label>players</label>
 		        <input class="form-control" name="playersNo" #playersNo="ngModel" [(ngModel)]="sportService.selectedSport.playersNo" placeholder="no of players" required>
+            <span class="help-block" *ngIf="playersNo.invalid && playersNo.touched">Please enter players number</span>
+
           </div>
 
           <div class="form-group" *ngIf="false">
 	        	<label>Type</label>
 	        	<div class="input-group">
-	        	<select class = "form-control " name="type" #type="ngModel"[(ngModel)]="sportService.selectedSport.type" required>
+	        	<select class = "form-control " name="type" #type="ngModel"[(ngModel)]="sportService.selectedSport.type" >
               <option value="team">team</option>
               <option value="individual">individual</option>
               
@@ -34,7 +39,7 @@
 	        
 
 	       <div class="form-group">
-	       	<button type="submit" class="w3-button w3-blue w3-round" [disabled]="!form">Submit</button>
+	       	<button type="submit" class="w3-button w3-blue w3-round" [disabled]="form.invalid">Submit</button>
 	       </div>
 	
 

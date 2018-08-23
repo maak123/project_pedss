@@ -46,29 +46,37 @@
 			<input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="subEventService.selectedSubEvent._id">
 			<input type="hidden" name="eventId" #eventId="ngModel" [(ngModel)]="subEventService.selectedSubEvent.eventId">
 
-	        <div class="form-group">
+	        <div class="form-group" [class.has-error]="nam.invalid && nam.touched">
 	        	<label>Sub Event Name</label>
-		        <input class="form-control" name="subEventName" #name="ngModel" [(ngModel)]="subEventService.selectedSubEvent.subEventName" placeholder="Name of the sub event" required>
+						<input class="form-control" name="subEventName" #nam="ngModel" [(ngModel)]="subEventService.selectedSubEvent.subEventName" placeholder="Name of the sub event" required>
+						<span class="help-block" *ngIf="nam.invalid && nam.touched"> Subevent is Required  </span>
+
 	        </div>
 
-	        <div class="form-group">
+	        <div class="form-group" [class.has-error]="sport.invalid && sport.touched">
 	        	<label>Sport</label>
 	        	<div class="input-group">
 	        	<select class = "form-control " name="sport" #sport="ngModel"[(ngModel)]="subEventService.selectedSubEvent.sport" required>
 	        	  <option *ngFor = " let sport of sports" value={{sport}}>{{sport}}</option>
-	        	</select>
+						</select>
+						<span class="help-block" *ngIf="sport.invalid && sport.touched"> Sport is Required  </span>
+
 	        	</div>
 	        </div>
 
-	        <div class="form-group">
+	        <div class="form-group" [class.has-error]="dateRange.invalid && dateRange.touched">
 	        	<label>Date Range</label>
-		        <my-date-range-picker name="dateRange" [options]="myDateRangePickerOptions"
-                    [(ngModel)]="subEventService.selectedSubEvent.dateRange" required></my-date-range-picker>
+		        <my-date-range-picker name="dateRange" #dateRange="ngModel" [options]="myDateRangePickerOptions"
+										[(ngModel)]="subEventService.selectedSubEvent.dateRange" required></my-date-range-picker>
+										<span class="help-block" *ngIf="dateRange.invalid && dateRange.touched"> Please select date range  </span>
+
+										
 	        </div>
           
 	
 	       <div class="form-group">
-	       	<button type="submit" class="btn btn-success" [disabled]="!subEventForm">Submit</button>
+
+	       	<button type="submit" class="btn btn-success" [disabled]="!subEventForm.valid">Submit</button>
 	       </div>
 	
 

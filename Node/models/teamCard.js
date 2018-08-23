@@ -12,6 +12,7 @@ var TeamCard = mongoose.model('TeamCard', {
 	
 	 
      
+});
 
 
 

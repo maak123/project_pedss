@@ -22,40 +22,46 @@
 
 
               <div class="row">
-                <div class="form-group col s6">
+                <div class="form-group col s6"  [class.has-error]="nam.invalid && nam.touched" >
                 <label>Name :
                     <label style="color:red">*</label>
                 </label>
                 
                 <div class="input-field col s12">
-                  <input class = "form-control" type="text"name="name" #name="ngModel" [(ngModel)]="userService.selectedUser.name" placeholder="Full Name" required >
+                  <input class = "form-control" type="text"name="name" #nam="ngModel" [(ngModel)]="userService.selectedUser.name" placeholder="Full Name" required >
+                  <span class="help-block" *ngIf="nam.invalid && nam.touched"> Name is Required </span>
                   </div>
                 </div>
               </div>
 
               <div class="row">
-                <div class="form-group col s6">
+                <div class="form-group col s6" [class.has-error]="index.invalid && index.touched">
                 <label>IndexNo :
                     <label style="color:red">*</label>
                   </label>
                 
                 <div class="input-field col s12">
-                  <input class = "form-control" type="text" name="indexNo" #name="ngModel" [(ngModel)]="userService.selectedUser.indexNo" placeholder="Index No" required >
-                  </div>
+                  <input class = "form-control" type="text" name="indexNo" #index="ngModel" [(ngModel)]="userService.selectedUser.indexNo" placeholder="Index No" required >
+                  <span class="help-block" *ngIf="index.invalid && index.touched"> Name is Required </span>
+  
+                </div>
                 </div>
               </div>
 
            
 
               <div class="row">
-                <div class="form-group col s6">
+                <div class="form-group col s6" [class.has-error]="telephone.invalid && telephone.touched">
                 <label>
                   Telephone :
                 </label>
                 
                 <div class="input-field col s12">
-                  <input class = "form-control" type="text" name="telephone" #name="ngModel" [(ngModel)]="userService.selectedUser.telephone" placeholder="Telephone" required>
-                  </div>
+                  <input class = "form-control" type="text" name="telephone" #telephone="ngModel" [(ngModel)]="userService.selectedUser.telephone" placeholder="Telephone"  required  maxlength=10 minlength="10" pattern="^[0-9]*$">
+                  <span class="help-block" *ngIf="telephone.errors?.required && telephone.touched"> Enter the phone numbers </span>
+                  <span class="help-block" *ngIf="telephone.errors?.pattern && telephone.touched"> Please enter only integers </span>
+                  <span class="help-block" *ngIf="telephone.errors?.minlength && telephone.touched"> Please enter 9 integers </span>  
+                </div>
                 </div>
               </div>
               

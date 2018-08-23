@@ -13,58 +13,96 @@
 
 
 
-        <div class="form-group">
-          <input type="text" name="name" #name="ngModel" [(ngModel)]="userService.selectedUser.name" class="form-control input-lg"
+        <div class="form-group" [class.has-error]="nam.invalid && nam.touched">
+            <div class="col-xs-2"><label class="control-lable">Name  :</label></div>
+          <input type="text" name="name" #nam="ngModel" [(ngModel)]="userService.selectedUser.name" class="form-control input-lg"
             placeholder="Name" tabindex="1" required>
+            <span class="help-block" *ngIf="nam.invalid && nam.touched">Name is required</span>
         </div>
 
-        <div class="form-group">
-          <input type="text" name="indexNo" #name="ngModel" [(ngModel)]="userService.selectedUser.indexNo" class="form-control input-lg"
+        <div class="form-group" [class.has-error]="index.invalid && index.touched">
+            <div class="col-xs-2"><label  class="control-lable">Index  :</label></div>
+          <input type="text" name="indexNo" #index="ngModel" [(ngModel)]="userService.selectedUser.indexNo" class="form-control input-lg"
             placeholder="Index No:" tabindex="3" required>
+            <span class="help-block" *ngIf="index.errors?.required  && index.touched"> Index number is Required  </span>
         </div>
 
-        <div class="form-group">
-          <input type="text" name="regNo" #name="ngModel" [(ngModel)]="userService.selectedUser.regNo" class="form-control input-lg"
+        <div class="form-group" [class.has-error]="reg.invalid && reg.touched">
+            <div class="col-xs-2"><label  class="control-lable">Register </label></div>
+          <input type="text" name="regNo" #reg="ngModel" [(ngModel)]="userService.selectedUser.regNo" class="form-control input-lg"
             placeholder="Registration No:" tabindex="4" required>
+            <span class="help-block" *ngIf="reg.invalid && reg.touched"> Registaton number is Required  </span>
         </div>
 
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-6">
-            <div class="form-group">
-              <select type="text" name="faculty" #name="ngModel" [(ngModel)]="userService.selectedUser.faculty" class="form-control input-lg"
+            <div class="form-group" [class.has-error]="fac.invalid && fac.touched">
+                <div class="col-xs-2"><label  class="control-lable">fac</label></div>
+
+              <select type="text" name="faculty" #fac="ngModel" [(ngModel)]="userService.selectedUser.faculty" class="form-control input-lg"
                 default tabindex="5" required>
                 <option value="" disabled selected>--Faculty--</option>
                 <option *ngFor=" let faculty of faculties" value={{faculty}}>{{faculty}}</option>
               </select>
+              <span class="help-block" *ngIf="fac.invalid && fac.touched">Faculty is required</span>
+
             </div>
           </div>
         </div>
 
-        <div class="form-group">
-          <input type="text" name="nic" #name="ngModel" [(ngModel)]="userService.selectedUser.nic" class="form-control input-lg" placeholder="NIC No:"
-            tabindex="6" required>
+        <div class="form-group" [class.has-error]="nic.invalid && nic.touched">
+            <div class="col-xs-2"><label  class="control-lable">NIC  :</label></div>
+
+          <input type="text" name="nic" #nic="ngModel" [(ngModel)]="userService.selectedUser.nic" class="form-control input-lg" placeholder="NIC No:"
+            tabindex="6" required maxlength="10" minlength="10">
+            <span class="help-block" *ngIf="nic.errors?.required && nic.touched"> NIC number is required  </span>
+            <span class="help-block" *ngIf="nic.errors?.minlength && nic.touched"> NIC should be 10 characters  </span>
         </div>
 
-        <div class="form-group">
-          <div class="input-group mb-2">
+        <div class="form-group" [class.has-error]="telephone.invalid && telephone.touched" >
+            <div class="col-xs-2"><label  class="control-lable">Telephone  :</label></div>
+
+            
+
+          <div class="input-group mb-2" >
             <div class="input-group-prepend">
               <div class="input-group-text">
                 <i class="">+94</i>
               </div>
             </div>
-            <input type="text" name="telephone" #name="ngModel" [(ngModel)]="userService.selectedUser.telephone" class="form-control input-lg"
-              placeholder="Mobile No:" tabindex="4" data-minlength="9" required>
+            <input type="text" name="telephone" #telephone="ngModel" [(ngModel)]="userService.selectedUser.telephone" class="form-control input-lg"
+              placeholder="Mobile No:" tabindex="4" maxlength="9" minlength="9" pattern="^[0-9]*$" required>
+              <span class="help-block" *ngIf="telephone.errors?.required && telephone.touched"> Enter the phone numbers </span>
+              <span class="help-block" *ngIf="telephone.errors?.pattern && telephone.touched"> Please enter only integers </span>
+              <span class="help-block" *ngIf="telephone.errors?.minlength && telephone.touched"> Please enter 9 integers </span>
+
+
           </div>
         </div>
 
-        <div class="form-group">
-          <input type="email" name="email" #name="ngModel" [(ngModel)]="userService.selectedUser.email" class="form-control input-lg"
-            placeholder="Email Address" tabindex="4">
+        <div class="form-group" [class.has-error]="email.invalid && email.touched">
+            <div class="col-xs-2"><label  class="control-lable">Email  :</label></div>
+
+          <input type="email" name="email" #email="ngModel" [(ngModel)]="userService.selectedUser.email" class="form-control input-lg"
+            placeholder="Email Address" tabindex="4" required pattern="^[a-zA-Z0-9_+.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9.]+$">
+            <span class="help-block" 
+*ngIf="email.errors?.required && email.touched"> Email  is Required  
+</span>  
+<span class="help-block" 
+*ngIf="email.errors?.pattern && email.touched"> Email is invalid
+ 
+</span> 
         </div>
 
-        <div class="form-group">
-          <input type="password" name="password" #name="ngModel" [(ngModel)]="userService.selectedUser.password" class="form-control input-lg"
-            placeholder="Password" tabindex="4" data-minlength="6" required>
+        <div class="form-group" [class.has-error]="password.invalid && password.touched">
+            <div class="col-xs-2"><label  class="control-lable">Password  :</label></div>
+
+          <input type="password" name="password" #password="ngModel" [(ngModel)]="userService.selectedUser.password" class="form-control input-lg"
+            placeholder="Password" tabindex="4" minlength="6" required>
+            <span class="help-block" *ngIf="password.errors?.required&& password.touched"> Password is required  </span>
+            <span class="help-block" *ngIf="password.errors?.minlength&& password.touched"> Minimum length of password is 6 </span>
+
+
         </div>
 
 
